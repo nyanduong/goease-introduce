@@ -1,4 +1,4 @@
-import { shouldAutoplay, nextAvailableIndex } from './motion-state.js';
+import { shouldAutoplay, nextAvailableIndex } from './motion-state.js?v=20261014-2';
 
 const region = document.querySelector('.destination-slideshow');
 const layers = [...region.querySelectorAll('.slide-layer')];

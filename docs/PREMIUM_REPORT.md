@@ -118,3 +118,5 @@ Mở http://127.0.0.1:4174. QA và ảnh nguồn không nằm trong dist.
 HEAD vẫn `ae662b4808748b3269d32899f98281402c889225`, branch main, origin giữ nguyên. Tất cả sửa đổi trong working tree, không stage/commit. Không push, merge, PR, Actions hoặc deploy, không hành động sửa website công khai. Workflow/hosting config giữ nguyên.
 
 Các trạng thái Git trên là bản ghi khi kết thúc review cục bộ. Ngày 14/10/2026, người dùng yêu cầu “deploy phần mới làm lên đi”, cho phép commit/push bản nâng cấp và xuất bản bằng workflow GitHub Pages hiện có. Giao diện sáng và thương hiệu vẫn được giữ nguyên.
+
+Kiểm tra sau xuất bản phát hiện cache trình duyệt có thể giữ app.js controller cũ khi HTML đã dùng controller tách mới, gây lỗi khai báo language trùng. Bổ sung phiên bản URL đồng bộ cho CSS/JS và module import để các lần tải mới không dùng tài nguyên của bản trước. Giữ query phiên bản và tăng mã khi publish thay đổi tiếp theo.

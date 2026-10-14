@@ -21,6 +21,8 @@ npm test
 
 Build kiểm tra JS và tài nguyên của artifact tĩnh dist, không bundling hoặc publish. Test kiểm tra chính sách autoplay, điều hướng và ảnh lỗi.
 
+CSS/JS có query phiên bản để tránh dùng JavaScript của bản cũ trong cache sau deploy. Khi xuất bản thay đổi CSS/JS tiếp theo, tăng cùng mã phiên bản trong index.html và import motion-state.js của slideshow.js.
+
 ## Cấu trúc
 
 - dist/index.html: nội dung, mockup, FAQ, Facebook và native dialog.
