@@ -18,4 +18,6 @@ Repo dự án: https://github.com/tranthaigin/goease-introduce. Remote `origin` 
 
 Màu sắc theo ảnh 1: kem `#FFF8EF`, xanh ngọc `#008B92`, xanh đậm `#123E4B`, cam `#F58B27`; hành động chính dùng gradient cam vàng, nền nhấn dùng gradient xanh ngọc. Lớp phong cách dự án nằm trong `dist/theme.css`, bố cục responsive trong `dist/styles.css`.
 
+Phông chính: Noto Sans variable qua Google Fonts, hỗ trợ tiếng Việt, có font hệ thống dự phòng và `display=swap`. Nội dung chính tăng cỡ chữ và khoảng dòng. Animation dùng CSS và IntersectionObserver: nội dung hiện một lần khi cuộn tới, nút phản hồi nhẹ và hộp thoại hiện nhanh. Không dùng thư viện animation hay xử lý cuộn liên tục; hỗ trợ `prefers-reduced-motion` và điều hướng bằng bàn phím.
+
 Hai nút tải đang hiển thị “Sắp ra mắt”, chưa gắn link theo yêu cầu. Khi có URL chính thức, điền `ios` và `android` trong `downloadLinks` ở dist/app.js. Đường dẫn trống mở thông báo; đường dẫn hợp lệ chuyển đến store tương ứng. Không gắn URL Expo Go thay cho ứng dụng GoEase.

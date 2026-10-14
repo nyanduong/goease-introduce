@@ -105,3 +105,40 @@ dialog.addEventListener('click', event => {
   if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
 });
 setLanguage(language);
+
+// Reveal each section once. Native scrolling stays in control of the browser.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (!motionPreference.matches && 'IntersectionObserver' in window) {
+  const revealTargets = [...document.querySelectorAll(
+    '.section-intro, .feature, .showcase-top, .app-preview, .steps-grid article, .download-panel, .faq > div'
+  )];
+  const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+  for (const element of revealTargets) {
+    if (element.getBoundingClientRect().top < window.innerHeight) continue;
+    element.classList.add('reveal');
+    if (element.matches('.feature, .steps-grid article')) {
+      const order = [...element.parentElement.children].indexOf(element);
+      element.style.setProperty('--reveal-delay', `${Math.min(order, 2) * 60}ms`);
+    }
+    revealObserver.observe(element);
+  }
+  // Keyboard navigation must never land on hidden content.
+  document.addEventListener('focusin', event => {
+    const section = event.target.closest('.reveal');
+    if (section) {
+      section.classList.add('is-visible');
+      revealObserver.unobserve(section);
+    }
+  });
+  motionPreference.addEventListener('change', event => {
+    if (!event.matches) return;
+    revealObserver.disconnect();
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+  });
+}
