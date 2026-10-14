@@ -20,4 +20,10 @@ Màu sắc theo ảnh 1: kem `#FFF8EF`, xanh ngọc `#008B92`, xanh đậm `#123
 
 Phông chính: Noto Sans variable qua Google Fonts, hỗ trợ tiếng Việt, có font hệ thống dự phòng và `display=swap`. Nội dung chính tăng cỡ chữ và khoảng dòng. Animation dùng CSS và IntersectionObserver: nội dung hiện một lần khi cuộn tới, nút phản hồi nhẹ và hộp thoại hiện nhanh. Không dùng thư viện animation hay xử lý cuộn liên tục; hỗ trợ `prefers-reduced-motion` và điều hướng bằng bàn phím.
 
+Các phần du lịch dùng `dist/travel.css`: cụm điện thoại mở từ hai chiếc chồng sang ba chiếc xòe khi vào màn hình; ba thẻ hành trình hiện theo thứ tự cùng đường bay; khung tải và logo chuyển động chậm, tạm dừng khi ra ngoài màn hình. Có nút tạm dừng/tiếp tục và hỗ trợ giảm chuyển động. Điện thoại dùng bố cục ba chiếc thu nhỏ trên mobile.
+
+Mục Giới thiệu liên kết tới https://www.facebook.com/profile.php?id=61594839483458 và nhúng Page Plugin chính thức, tải khi cuộn gần tới mục này. Nút mở Facebook luôn hiện, kể cả khi plugin bị chặn. Plugin có thể phụ thuộc quyền riêng tư, cookie và cấu hình phía Facebook.
+
+Logo nền trong suốt dùng riêng ở khung tải: `dist/assets/goease-logo-cutout.png`. Logo gốc được giữ nguyên. Xem [prompt và nguồn asset](docs/logo-cutout.md).
+
 Hai nút tải đang hiển thị “Sắp ra mắt”, chưa gắn link theo yêu cầu. Khi có URL chính thức, điền `ios` và `android` trong `downloadLinks` ở dist/app.js. Đường dẫn trống mở thông báo; đường dẫn hợp lệ chuyển đến store tương ứng. Không gắn URL Expo Go thay cho ứng dụng GoEase.
