@@ -1,6 +1,13 @@
 // Add official GoEase store URLs here when the app is released.
 const downloadLinks = { ios: '', android: '' };
 const en = {
+  appPreview: 'Illustrative GoEase experience', phoneHello: 'Hello,', phoneReady: 'Ready for a new adventure?',
+  phoneCreate: 'Create a trip', phoneTrip: 'Your trips', phoneStart: 'Your journey starts here', phoneOwn: 'A plan that feels like you.',
+  phoneDestination: 'Destination', phoneDuration: 'Duration', phoneDays: '3 days of discovery', phoneBudget: 'Estimated budget',
+  phoneStyle: 'What do you love?', phoneNature: 'Nature', phoneFood: 'Food', phoneCulture: 'Culture', phoneNext: 'Next',
+  phoneMoments: 'Moments to remember.', phoneDay1: 'Day 1', phoneDay2: 'Day 2', phoneDay3: 'Day 3',
+  phoneDepart: 'The journey begins', phoneDepartNote: 'A new day. Let’s go!', phoneExplore: 'Discover Hạ Long Bay', phoneExploreNote: 'Nature, all around you',
+  phoneLunch: 'Taste the local flavors', phoneLunchNote: 'A little taste of somewhere new', phoneBudgetSummary: 'Estimated cost', phoneSave: 'Save trip',
   skip: 'Skip to content', nav: 'Main navigation', mobileNav: 'Mobile navigation', menu: 'Open menu',
   navAbout: 'About GoEase', navFeatures: 'Experience', navSteps: 'How it works', navDownload: 'Get the app',
   eyebrow: 'A NEW JOURNEY WITH GOEASE', heroLine1: 'Just go.', heroLine2: 'Your journey,', heroLine3: 'we’ll plan.',
