@@ -2,5 +2,11 @@
   "name": "goease-landing",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "start": "node server.mjs", "check": "node --check dist/app.js" }
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node scripts/validate-site.mjs --syntax-only",
+    "build": "node scripts/validate-site.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
 }

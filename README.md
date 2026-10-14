@@ -1,29 +1,56 @@
 # GoEase landing page
 
-Website giới thiệu GoEase, sử dụng HTML/CSS/JavaScript thuần, không cần cài thư viện.
+Website giới thiệu GoEase bằng HTML/CSS/JavaScript thuần. Giữ logo, slogan “Just go. We’ll plan.”, màu kem/xanh ngọc/cam và nội dung đã duyệt. Chỉ có light theme, không có Dark Mode.
 
-Chạy từ thư mục này bằng `npm start`, mở http://127.0.0.1:4173. Website deploy dùng thư mục `dist`.
+## Xem thử cục bộ
 
-## GitHub Pages
+Chạy trong C:\Wed-GoEase\goease-site bằng PowerShell:
 
-Địa chỉ: https://tranthaigin.github.io/goease-introduce/
+```powershell
+$env:GOEASE_PORT = '4174'
+npm start
+```
 
-Workflow `.github/workflows/pages.yml` kiểm tra JavaScript và triển khai thư mục `dist` khi push vào `main`. Có thể chạy lại bằng Actions → Deploy GoEase to GitHub Pages → Run workflow. Pages dùng nguồn GitHub Actions. Các đường dẫn ảnh/CSS/JS dùng đường dẫn tương đối để hoạt động tại `/goease-introduce/`.
+Mở http://127.0.0.1:4174. Không đặt GOEASE_PORT thì server dùng 4173. Không cần cài dependency để chạy website.
 
-Logo chính thức và ảnh định hướng màu do người dùng cung cấp; ảnh Hạ Long lấy từ tài nguyên dự án C:/GoEase/go-ease-webapp. Ảnh 1 dùng để định hướng phong cách, không nhúng làm phần giới thiệu ứng dụng. Ba màn hình điện thoại minh họa được dựng bằng HTML/CSS. Giữ nguyên slogan “Just go. We’ll plan.”. Website mặc định tiếng Việt, có nút chuyển English và lưu lựa chọn.
+```powershell
+npm run check
+npm run build
+npm test
+```
 
-Tài liệu nguồn: README.md, docs/UI_DIRECTION.md, docs/FEATURE_FLOWS.md, docs/MVP_EXPO_GO.md của dự án GoEase. Các chức năng trong website là định hướng, có nhãn đang phát triển. Phần xem trước là giao diện minh họa, không phải ảnh chụp ứng dụng đã phát hành.
+Build kiểm tra JS và tài nguyên của artifact tĩnh dist, không bundling hoặc publish. Test kiểm tra chính sách autoplay, điều hướng và ảnh lỗi.
 
-Repo dự án: https://github.com/tranthaigin/goease-introduce. Remote `origin` trỏ tới repo này. Sites dùng kho riêng qua helper của plugin; không thay đổi remote GitHub khi triển khai Sites.
+## Cấu trúc
 
-Màu sắc theo ảnh 1: kem `#FFF8EF`, xanh ngọc `#008B92`, xanh đậm `#123E4B`, cam `#F58B27`; hành động chính dùng gradient cam vàng, nền nhấn dùng gradient xanh ngọc. Lớp phong cách dự án nằm trong `dist/theme.css`, bố cục responsive trong `dist/styles.css`.
+- dist/index.html: nội dung, mockup, FAQ, Facebook và native dialog.
+- dist/styles.css, theme.css, travel.css: lớp giao diện đã duyệt, giữ nguyên.
+- dist/premium.css: lớp tinh chỉnh giao diện, responsive và chuyển động.
+- dist/app.js: bản dịch Việt/Anh và downloadLinks, chỉ lưu ngôn ngữ trong localStorage.
+- dist/interactions.js: menu, reveal, preview, dialog, pause và Facebook.
+- dist/slideshow.js, motion-state.js: slideshow hai lớp ảnh, autoplay khoảng 5 giây, điều khiển/preload/xử lý lỗi.
 
-Phông chính: Noto Sans variable qua Google Fonts, hỗ trợ tiếng Việt, có font hệ thống dự phòng và `display=swap`. Nội dung chính tăng cỡ chữ và khoảng dòng. Animation dùng CSS và IntersectionObserver: nội dung hiện một lần khi cuộn tới, nút phản hồi nhẹ và hộp thoại hiện nhanh. Không dùng thư viện animation hay xử lý cuộn liên tục; hỗ trợ `prefers-reduced-motion` và điều hướng bằng bàn phím.
+Desktop giữ ba điện thoại xòe; mobile/tablet dùng mockup 260px có vuốt, nút trước/sau và phím mũi tên. Giữ Noto Sans hỗ trợ tiếng Việt, display=swap và font hệ thống dự phòng. Chuyển động tôn trọng giảm chuyển động, trạng thái tab và nút pause.
 
-Các phần du lịch dùng `dist/travel.css`: cụm điện thoại mở từ hai chiếc chồng sang ba chiếc xòe khi vào màn hình; ba thẻ hành trình hiện theo thứ tự cùng đường bay; khung tải và logo chuyển động chậm, tạm dừng khi ra ngoài màn hình. Có nút tạm dừng/tiếp tục và hỗ trợ giảm chuyển động. Điện thoại dùng bố cục ba chiếc thu nhỏ trên mobile.
+Hai nút tải vẫn mở thông báo sắp ra mắt. Khi có URL chính thức và được duyệt, cập nhật downloadLinks trong dist/app.js; không gắn URL Expo Go thay GoEase.
 
-Mục Giới thiệu liên kết tới https://www.facebook.com/profile.php?id=61594839483458 và nhúng Page Plugin chính thức, tải khi cuộn gần tới mục này. Nút mở Facebook luôn hiện, kể cả khi plugin bị chặn. Plugin có thể phụ thuộc quyền riêng tư, cookie và cấu hình phía Facebook.
+Facebook dùng một Page Plugin chính thức của https://www.facebook.com/profile.php?id=61594839483458. Có loading, timeout/fallback, tải lại thủ công và liên kết trực tiếp. Meta cung cấp public timeline khi tải khung; thời điểm bài mới xuất hiện phụ thuộc cache/quyền truy cập. Không feed giả, scraping hoặc token frontend.
 
-Logo nền trong suốt dùng riêng ở khung tải: `dist/assets/goease-logo-cutout.png`. Logo gốc được giữ nguyên. Xem [prompt và nguồn asset](docs/logo-cutout.md).
+## Tài liệu và assets
 
-Hai nút tải đang hiển thị “Sắp ra mắt”, chưa gắn link theo yêu cầu. Khi có URL chính thức, điền `ios` và `android` trong `downloadLinks` ở dist/app.js. Đường dẫn trống mở thông báo; đường dẫn hợp lệ chuyển đến store tương ứng. Không gắn URL Expo Go thay cho ứng dụng GoEase.
+- [Audit trước sửa](docs/PREMIUM_AUDIT.md)
+- [Báo cáo hoàn thành và kiểm thử](docs/PREMIUM_REPORT.md)
+- [Nguồn ảnh và giấy phép](dist/image-credits.html)
+- [Nguồn logo cutout có sẵn](docs/logo-cutout.md)
+
+Logo, cutout và ảnh Hạ Long gốc được giữ nguyên; WebP là bản tối ưu bổ sung. scripts/optimize-assets.py cần Python/Pillow để tái tạo assets, không cần khi chạy web. Nguồn Commons ở qa/source-images trên máy này, không nằm trong artifact. Muốn tái tạo trên máy khác cần tải ảnh nguồn từ các trang/giấy phép đã ghi.
+
+Đã đối chiếu README và docs/MVP_EXPO_GO.md hiện có trong C:/GoEase/go-ease-webapp, cùng Google Docs EXE101_G17_03. UI_DIRECTION.md và FEATURE_FLOWS.md cũ không còn trong checkout sản phẩm hiện tại. Mockup và AI/lịch trình/ngân sách là định hướng, không phải tính năng đã phát hành.
+
+## Git và website công khai
+
+Repo: https://github.com/tranthaigin/goease-introduce. Website: https://tranthaigin.github.io/goease-introduce/.
+
+Workflow .github/workflows/pages.yml publish dist khi push main. Bản nâng cấp đã được review cục bộ; ngày 14/10/2026 người dùng yêu cầu triển khai bản mới lên GitHub Pages. Sử dụng workflow hiện có, không đổi remote hoặc hosting config. Báo cáo lưu kết quả kiểm thử và trạng thái trước lần phê duyệt này.
+
+qa/ được Git bỏ qua, chứa ảnh chụp/kết quả kiểm thử. scripts/qa-failure-server.mjs chỉ mô phỏng lỗi ở 4175, không nằm trong dist hoặc chạy trong bản thật.
