@@ -4,6 +4,12 @@ Website giới thiệu GoEase, sử dụng HTML/CSS/JavaScript thuần, không c
 
 Chạy từ thư mục này bằng `npm start`, mở http://127.0.0.1:4173. Website deploy dùng thư mục `dist`.
 
+## GitHub Pages
+
+Địa chỉ: https://tranthaigin.github.io/goease-introduce/
+
+Workflow `.github/workflows/pages.yml` kiểm tra JavaScript và triển khai thư mục `dist` khi push vào `main`. Có thể chạy lại bằng Actions → Deploy GoEase to GitHub Pages → Run workflow. Pages dùng nguồn GitHub Actions. Các đường dẫn ảnh/CSS/JS dùng đường dẫn tương đối để hoạt động tại `/goease-introduce/`.
+
 Logo chính thức và ảnh định hướng màu do người dùng cung cấp; ảnh Hạ Long lấy từ tài nguyên dự án C:/GoEase/go-ease-webapp. Ảnh 1 dùng để định hướng phong cách, không nhúng làm phần giới thiệu ứng dụng. Ba màn hình điện thoại minh họa được dựng bằng HTML/CSS. Giữ nguyên slogan “Just go. We’ll plan.”. Website mặc định tiếng Việt, có nút chuyển English và lưu lựa chọn.
 
 Tài liệu nguồn: README.md, docs/UI_DIRECTION.md, docs/FEATURE_FLOWS.md, docs/MVP_EXPO_GO.md của dự án GoEase. Các chức năng trong website là định hướng, có nhãn đang phát triển. Phần xem trước là giao diện minh họa, không phải ảnh chụp ứng dụng đã phát hành.
