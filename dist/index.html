@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006975">
+  <meta name="description" content="GoEase — Just go. We’ll plan. Khám phá dự án ứng dụng lập kế hoạch du lịch, lịch trình theo sở thích và quản lý ngân sách chuyến đi.">
+  <title>GoEase — Just go. We’ll plan.</title>
+  <link rel="icon" href="assets/goease-logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
+  <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3 12.5c0-2 1.6-3 1.7-3.1-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.2.8-.6 0-1.6-.8-2.7-.7-1.4 0-2.8.8-3.5 2-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.5 2.1 2.7 2 1.1 0 1.5-.7 2.9-.7 1.3 0 1.7.7 2.9.7 1.2 0 1.9-1 2.6-2 .8-1.2 1.2-2.4 1.2-2.5-.1 0-2.7-1-2.7-3.5ZM15.2 6.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.7 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.8-1.2Z"/></symbol>
+    <symbol id="play" viewBox="0 0 24 24"><path d="M4 3.2v17.6L20 12 4 3.2Z" fill="currentColor"/><path d="m4 3.2 11 11M4 20.8l11-11" fill="none" stroke="var(--store-bg, #fff)" stroke-width="1.1"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/></symbol>
+    <symbol id="map" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16"/></symbol>
+    <symbol id="wallet" viewBox="0 0 24 24"><path d="M20 8H5a2 2 0 0 1 0-4h13v4M3 6v12a2 2 0 0 0 2 2h15V8m0 4h-5v4h5"/><path d="M16.5 14h.1"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="plane" viewBox="0 0 24 24"><path d="m3 9 18-6-6 18-4-7-8-5Zm8 5L21 3"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </defs></svg>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="GoEase"><img src="assets/goease-logo.png" alt="" width="52" height="52"><span>GoEase<span class="brand-tag">Just go. We’ll plan.</span></span></a>
+      <nav class="desktop-nav" aria-label="Điều hướng chính" data-i18n-aria="nav">
+        <a href="#ve-goease" data-i18n="navAbout">Về GoEase</a><a href="#tinh-nang" data-i18n="navFeatures">Trải nghiệm</a><a href="#cach-hoat-dong" data-i18n="navSteps">Cách hoạt động</a>
+      </nav>
+      <div class="nav-actions"><button id="language" class="language" aria-label="Switch to English">EN <span>↗</span></button><a href="#tai-ung-dung" class="nav-cta"><span data-i18n="navDownload">Tải ứng dụng</span><svg class="icon"><use href="#arrow"/></svg></a><button class="menu-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Mở menu" data-i18n-aria="menu"><span></span><span></span></button></div>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Điều hướng trên điện thoại" data-i18n-aria="mobileNav"><a href="#ve-goease" data-i18n="navAbout">Về GoEase</a><a href="#tinh-nang" data-i18n="navFeatures">Trải nghiệm</a><a href="#cach-hoat-dong" data-i18n="navSteps">Cách hoạt động</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="ve-goease">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="tiny-dot"></span><span data-i18n="eyebrow">MỘT HÀNH TRÌNH MỚI CÙNG GOEASE</span></div>
+        <h1><span data-i18n="heroLine1">Bạn cứ đi.</span><br><span class="accent" data-i18n="heroLine2">Kế hoạch,</span><br><span data-i18n="heroLine3">để GoEase lo.</span><svg class="hero-plane icon"><use href="#plane"/></svg></h1>
+        <p class="hero-description" data-i18n="heroDescription">Bớt thời gian lên kế hoạch. Thêm thời gian tận hưởng. GoEase hướng đến những chuyến đi được sắp xếp theo sở thích, thời gian và ngân sách của bạn.</p>
+        <div class="store-buttons">
+          <button class="store-button" data-platform="ios"><svg class="store-icon"><use href="#apple"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>App Store</strong></span><span class="store-arrow">↗</span></button>
+          <button class="store-button" data-platform="android"><svg class="store-icon play-icon"><use href="#play"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>Google Play</strong></span><span class="store-arrow">↗</span></button>
+        </div>
+        <p class="release-note"><span class="tiny-dot"></span><span data-i18n="releaseNote">Đang phát triển · Dành cho iOS & Android</span></p>
+        <a href="#trai-nghiem" class="text-link"><span data-i18n="exploreDesign">Khám phá GoEase</span><svg class="icon"><use href="#arrow"/></svg></a>
+      </div>
+      <div class="hero-visual">
+        <div class="travel-photo"><img src="assets/halong.png" alt="Minh họa vịnh Hạ Long với núi đá và thuyền trong ánh hoàng hôn" data-i18n-alt="halongAlt" fetchpriority="high"><span class="photo-label"><svg class="icon"><use href="#pin"/></svg> Hạ Long, Việt Nam</span><div class="photo-title"><span data-i18n="photoSmall">ĐI XA HƠN. SỐNG TRỌN HƠN.</span><strong>More than<br>a trip.</strong></div></div>
+        <div class="postcard"><span class="postcard-header"><span data-i18n="yourNextTrip">CHUYẾN ĐI TIẾP THEO CỦA BẠN</span><svg class="icon"><use href="#plane"/></svg></span><strong>Hạ Long – Cát Bà</strong><div class="postcard-meta"><span data-i18n="sampleTrip">3 ngày · 4 người</span><span class="sample-badge" data-i18n="example">VÍ DỤ</span></div><div class="postcard-row"><span class="round-icon"><svg class="icon"><use href="#compass"/></svg></span><span><b data-i18n="tripStyle">Thiên nhiên & thư giãn</b><small data-i18n="tripStyleNote">Một hành trình, theo cách của bạn</small></span><svg class="icon"><use href="#check"/></svg></div></div>
+        <span class="journey-stamp">JUST GO.<br><b>WE’LL PLAN.</b><svg class="icon"><use href="#plane"/></svg></span>
+        <div class="visual-caption"><span>01 / GO EXPLORE</span><span data-i18n="visualCaption">Khởi đầu bằng một điểm đến.</span></div>
+      </div>
+    </section>
+
+    <div class="values-strip"><div class="container values-inner"><span data-i18n="strip1">Khám phá dễ dàng</span><svg class="icon"><use href="#plane"/></svg><span data-i18n="strip2">Lên kế hoạch thông minh</span><svg class="icon"><use href="#plane"/></svg><span data-i18n="strip3">Trải nghiệm trọn vẹn</span><svg class="icon"><use href="#plane"/></svg><span class="strip-slogan">Just go. We’ll plan.</span></div></div>
+
+    <section class="section container features" id="tinh-nang">
+      <div class="section-intro"><div><p class="eyebrow" data-i18n="featureEyebrow">ÍT LO TOAN, NHIỀU TRẢI NGHIỆM</p><h2><span data-i18n="featureTitle1">Một chuyến đi hay.</span><br><span class="accent" data-i18n="featureTitle2">Bắt đầu từ kế hoạch tốt.</span></h2></div><p class="section-description" data-i18n="featureDescription">GoEase đang xây dựng một nơi để bạn gom những ý tưởng, lịch trình và ngân sách — để việc chuẩn bị cho chuyến đi trở nên nhẹ nhàng hơn.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-number">01</span><div class="feature-icon"><svg class="icon"><use href="#compass"/></svg></div><h3 data-i18n="feature1Title">Đúng sở thích của bạn</h3><p data-i18n="feature1Body">Thiên nhiên, văn hóa hay ẩm thực? Bắt đầu với điều bạn yêu thích để định hình một hành trình mang dấu ấn riêng.</p><span class="feature-label" data-i18n="feature1Tag">Cá nhân hóa hành trình</span></article>
+        <article class="feature"><span class="feature-number">02</span><div class="feature-icon orange"><svg class="icon"><use href="#map"/></svg></div><h3 data-i18n="feature2Title">Lịch trình dễ theo dõi</h3><p data-i18n="feature2Body">Sắp xếp hoạt động theo từng ngày, xem địa điểm trên bản đồ và điều chỉnh kế hoạch khi ý tưởng mới xuất hiện.</p><span class="feature-label" data-i18n="feature2Tag">Chủ động từng ngày</span></article>
+        <article class="feature"><span class="feature-number">03</span><div class="feature-icon"><svg class="icon"><use href="#wallet"/></svg></div><h3 data-i18n="feature3Title">Ngân sách trong tầm tay</h3><p data-i18n="feature3Body">Dự tính chi phí cho từng hoạt động và cả chuyến đi. Biết mình dự định chi bao nhiêu, để tận hưởng thoải mái hơn.</p><span class="feature-label" data-i18n="feature3Tag">Dễ quản lý chi phí</span></article>
+      </div><p class="development-caption" data-i18n="developmentCaption">Các trải nghiệm trên là định hướng tính năng đang được phát triển.</p>
+    </section>
+
+    <section class="showcase section" id="trai-nghiem"><div class="container">
+      <div class="showcase-top"><div><p class="eyebrow" data-i18n="showcaseEyebrow">MỘT CHÚT VỀ GOEASE</p><h2><span data-i18n="showcaseTitle1">Cảm hứng trong tay.</span><br><span data-i18n="showcaseTitle2">Hành trình ở phía trước.</span></h2></div><div class="showcase-side"><span class="status-pill"><span class="tiny-dot"></span><span data-i18n="designPreview">THIẾT KẾ THAM CHIẾU</span></span><p data-i18n="showcaseBody">Từ ý tưởng đầu tiên đến một lịch trình rõ ràng. Đây là hình dung về trải nghiệm GoEase mà chúng tôi đang hướng tới.</p></div></div>
+      <div class="preview-frame"><img src="assets/goease-preview.jpg" loading="lazy" alt="Thiết kế tham chiếu GoEase gồm trang chủ, tạo chuyến đi và lịch trình Hạ Long – Cát Bà" data-i18n-alt="previewAlt" width="1280" height="905"></div><p class="image-caption" data-i18n="imageCaption">Hình ảnh minh họa định hướng thiết kế. Giao diện và tính năng có thể thay đổi khi phát hành.</p>
+    </div></section>
+
+    <section class="section container steps" id="cach-hoat-dong"><div class="section-intro"><div><p class="eyebrow" data-i18n="stepsEyebrow">TỪ “MUỐN ĐI” ĐẾN “SẴN SÀNG ĐI”</p><h2><span data-i18n="stepsTitle1">Hành trình của bạn.</span><br><span class="accent" data-i18n="stepsTitle2">Khởi đầu thật đơn giản.</span></h2></div><p class="section-description" data-i18n="stepsDescription">Một luồng trải nghiệm được thiết kế để bạn dành ít thời gian chuẩn bị hơn và nhiều thời gian khám phá hơn.</p></div>
+      <div class="steps-grid"><article><span class="step-num">1</span><h3 data-i18n="step1Title">Kể về chuyến đi</h3><p data-i18n="step1Body">Chọn điểm đến, ngày đi, số người, ngân sách và những điều bạn muốn trải nghiệm.</p></article><article><span class="step-num">2</span><h3 data-i18n="step2Title">Lên kế hoạch của riêng bạn</h3><p data-i18n="step2Body">Xem lịch trình theo ngày, điều chỉnh hoạt động và cân đối chi phí theo nhu cầu.</p></article><article><span class="step-num">3</span><h3 data-i18n="step3Title">Lưu lại và sẵn sàng đi</h3><p data-i18n="step3Body">Giữ kế hoạch chuyến đi để xem lại. Mang theo cảm hứng và bắt đầu hành trình của bạn.</p></article></div>
+    </section>
+
+    <section class="download-section container" id="tai-ung-dung"><div class="download-panel"><div class="download-copy"><span class="eyebrow" data-i18n="downloadEyebrow">HẸN BẠN Ở HÀNH TRÌNH SẮP TỚI</span><h2>Just go.<br><span>We’ll plan.</span></h2><p data-i18n="downloadBody">Một ứng dụng nhỏ. Những hành trình lớn.<br>GoEase đang chuẩn bị cho lần ra mắt đầu tiên.</p><div class="store-buttons"><button class="store-button light" data-platform="ios"><svg class="store-icon"><use href="#apple"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>App Store</strong></span><span class="store-arrow">↗</span></button><button class="store-button light" data-platform="android"><svg class="store-icon"><use href="#play"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>Google Play</strong></span><span class="store-arrow">↗</span></button></div><p class="download-note" data-i18n="downloadNote">Chưa mở tải xuống. Chúng tôi sẽ cập nhật khi ứng dụng ra mắt.</p></div><div class="download-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="assets/goease-logo.png" alt="" width="220" height="220"><svg class="icon big-plane"><use href="#plane"/></svg><span>YOUR NEXT<br>ADVENTURE<br><em>starts here.</em></span></div></div></section>
+
+    <section class="section container faq"><div><p class="eyebrow" data-i18n="faqEyebrow">BẠN CÓ THỂ ĐANG THẮC MẮC</p><h2 data-i18n="faqTitle">Trước khi lên đường.</h2></div><div class="faq-list"><details><summary data-i18n="faq1Question">GoEase là gì?</summary><p data-i18n="faq1Answer">GoEase là dự án ứng dụng lập kế hoạch du lịch, hướng đến việc tổ chức lịch trình theo sở thích, thời gian, số người và ngân sách. Slogan của dự án là “Just go. We’ll plan.”.</p></details><details><summary data-i18n="faq2Question">Tôi có thể tải ứng dụng ngay chưa?</summary><p data-i18n="faq2Answer">GoEase hiện đang trong giai đoạn phát triển. Hai nút App Store và Google Play chưa có đường dẫn tải. Khi ứng dụng được phát hành, đường dẫn chính thức sẽ được cập nhật tại đây.</p></details><details><summary data-i18n="faq3Question">Hình ảnh trên website có phải ứng dụng đã hoàn thiện?</summary><p data-i18n="faq3Answer">Hình ảnh trên website là thiết kế tham chiếu và nội dung minh họa. Đây là định hướng trải nghiệm của GoEase; giao diện và tính năng thực tế sẽ được hoàn thiện trong quá trình phát triển.</p></details></div></section>
+  </main>
+
+  <footer class="container footer"><a href="#" class="brand"><img src="assets/goease-logo.png" alt="" width="44" height="44"><span>GoEase<span class="brand-tag">Just go. We’ll plan.</span></span></a><p data-i18n="footerMessage">Đi xa hơn. Sống trọn hơn. Cùng GoEase.</p><span>© 2026 GoEase</span></footer>
+  <dialog id="download-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Đóng" data-i18n-aria="close">×</button><div class="dialog-icon"><svg class="icon"><use href="#plane"/></svg></div><p class="eyebrow" data-i18n="dialogEyebrow">CHUYẾN ĐI MỚI ĐANG ĐƯỢC CHUẨN BỊ</p><h2 id="dialog-title" data-i18n="dialogTitle">GoEase sắp ra mắt.</h2><p id="dialog-description"></p><button class="dialog-confirm" data-i18n="dialogConfirm">Hẹn gặp bạn sớm!</button></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
