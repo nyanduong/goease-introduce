@@ -58,8 +58,10 @@ html { scroll-padding-top:124px; }
 .circle-button { border:1px solid #bfcfc0;background:#fffcf3;border-radius:50%;color:#275d52;box-shadow:inset 0 1px 0 #fff;transition:transform var(--control-fast) var(--control-ease),background var(--control-fast),border-color var(--control-fast),box-shadow var(--control-fast); }
 .circle-button:hover { background:#e8efdf;color:#184e43;border-color:#cba573;transform:translateY(-2px);box-shadow:0 5px 13px -9px #154d4670; }
 .circle-button:active { transform:scale(.95); }
-.scene-invitation { border-radius:22px;border:1px solid #d7dccb;background:linear-gradient(125deg,#fffdf5,#f1f0e3);box-shadow:0 8px 24px -15px #0d40364d;transition:transform var(--control-slow) var(--control-ease),border-color var(--control-fast),box-shadow var(--control-fast); }
+.scene-invitation { color:#184f4b;border-radius:22px;border:1px solid #d7dccb;background:linear-gradient(125deg,#fffdf5,#f1f0e3);box-shadow:0 8px 24px -15px #0d40364d;transition:transform var(--control-slow) var(--control-ease),border-color var(--control-fast),box-shadow var(--control-fast); }
 .scene-invitation:hover { transform:translateY(-4px);border-color:#cea566;box-shadow:0 14px 32px -16px #163e3b55; }
+.scene-invitation strong,.scene-invitation>.icon { color:#184f4b; }
+.scene-invitation small { color:#4b685a; }
 .scene-invitation .invitation-icon { border:1px solid #c6d7bd;background:#e8efdf;color:#276d5f; }
 .destination-card { border-radius:18px;border-color:#d5ddce;transition:transform var(--control-fast) var(--control-ease),border-color var(--control-fast),background var(--control-fast),box-shadow var(--control-fast); }
 .destination-card:hover { transform:translateY(-3px);border-color:#b7c8ac;background:#f7f8ed; }
