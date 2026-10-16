@@ -59,7 +59,7 @@ html { scroll-padding-top:124px; }
 .circle-button:hover { background:#e8efdf;color:#184e43;border-color:#cba573;transform:translateY(-2px);box-shadow:0 5px 13px -9px #154d4670; }
 .circle-button:active { transform:scale(.95); }
 .scene-invitation { color:#184f4b;border-radius:22px;border:1px solid #d7dccb;background:linear-gradient(125deg,#fffdf5,#f1f0e3);box-shadow:0 8px 24px -15px #0d40364d;transition:transform var(--control-slow) var(--control-ease),border-color var(--control-fast),box-shadow var(--control-fast); }
-.scene-invitation:hover { transform:translateY(-4px);border-color:#cea566;box-shadow:0 14px 32px -16px #163e3b55; }
+.scene-invitation:hover,.scene-invitation:focus-visible { background:linear-gradient(125deg,#fffdf5,#f1f0e3);color:#184f4b;transform:translateY(-4px);border-color:#cea566;box-shadow:0 14px 32px -16px #163e3b55; }
 .scene-invitation strong,.scene-invitation>.icon { color:#184f4b; }
 .scene-invitation small { color:#4b685a; }
 .scene-invitation .invitation-icon { border:1px solid #c6d7bd;background:#e8efdf;color:#276d5f; }
