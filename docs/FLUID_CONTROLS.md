@@ -1,0 +1,11 @@
+# Fluid controls and narrated journey refinement
+
+- Removed legacy `.phone` pseudo elements inside `.app-phone`. The old centred home indicator retained `left:50%` and a translation while the later side-button override changed its height and background. This drew a grey vertical bar over the budget content. The device uses its existing dedicated `.app-home-indicator` instead.
+- Extended the existing React Bits SpecularButton WebGL2 adaptation to the header release CTA, hero exploration CTA and circular back-to-top link. Native links, anchors and tooltip remain intact. The circular shader radius follows the round control.
+- Adapted the spring integrator from React Bits AnimatedList (omega 30, damping ratio .78, 1/240-second substeps) for the guide selector and story step selector. Guide rows keep their descriptions visible and maintain stable geometry. A single selected surface glides behind the controls. Keyboard tab semantics and arrow/Home/End selection are preserved. Selection does not change merely on hover.
+- Incoming phone panels fade/translate over 460 ms. List rows reveal with a 75 ms stagger. Global motion pause and reduced-motion preferences settle the spring and entrance effects.
+- Section 01 now has narration and step/playback controls together inside a dark green card beside the travel preview. Removed oversized minimum narrator height, reduced section whitespace, kept body type tokens and added synchronized view entrances. Interest tiles use two columns on mobile; secondary timeline notes are omitted on narrow layouts. Preview scenes have a stable 355 px workspace and do not overlap its footer at the checked mobile size.
+
+Sources: https://reactbits.dev/components/specular-button and https://reactbits.dev/r/AnimatedList-JS-CSS.json, accessed 2026-10-16. Original David Haz MIT + Commons Clause notice remains in `dist/vendor/react-bits-LICENSE.md`.
+
+Validation: build/static site contracts, JavaScript syntax, 8 existing route/motion tests, whitespace checks. Chrome responsive checks at 1366x768 and 390x844: guide tab selection and End keyboard navigation, selected-surface alignment, all three story scenes fitting their workspace, phone budget panel fitting 600 px, removal of grey pseudo element, absence of horizontal overflow. This is responsive browser QA, not physical-device verification.

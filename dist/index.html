@@ -1,115 +1,912 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#006975">
-  <meta name="color-scheme" content="light">
-  <meta name="description" content="GoEase — Just go. We’ll plan. Khám phá dự án ứng dụng lập kế hoạch du lịch, lịch trình theo sở thích và quản lý ngân sách chuyến đi.">
-  <title>GoEase — Just go. We’ll plan.</title>
-  <link rel="icon" href="assets/goease-logo.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400..800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261014-2">
-  <link rel="stylesheet" href="theme.css?v=20261014-2">
-  <link rel="stylesheet" href="travel.css?v=20261014-2">
-  <link rel="stylesheet" href="premium.css?v=20261014-2">
-</head>
-<body>
-  <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
-  <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
-    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3 12.5c0-2 1.6-3 1.7-3.1-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.2.8-.6 0-1.6-.8-2.7-.7-1.4 0-2.8.8-3.5 2-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.5 2.1 2.7 2 1.1 0 1.5-.7 2.9-.7 1.3 0 1.7.7 2.9.7 1.2 0 1.9-1 2.6-2 .8-1.2 1.2-2.4 1.2-2.5-.1 0-2.7-1-2.7-3.5ZM15.2 6.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.7 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.8-1.2Z"/></symbol>
-    <symbol id="play" viewBox="0 0 24 24"><path d="M4 3.2v17.6L20 12 4 3.2Z" fill="currentColor"/><path d="m4 3.2 11 11M4 20.8l11-11" fill="none" stroke="var(--store-bg, #fff)" stroke-width="1.1"/></symbol>
-    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
-    <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/></symbol>
-    <symbol id="map" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16"/></symbol>
-    <symbol id="wallet" viewBox="0 0 24 24"><path d="M20 8H5a2 2 0 0 1 0-4h13v4M3 6v12a2 2 0 0 0 2 2h15V8m0 4h-5v4h5"/><path d="M16.5 14h.1"/></symbol>
-    <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="plane" viewBox="0 0 24 24"><path d="m3 9 18-6-6 18-4-7-8-5Zm8 5L21 3"/></symbol>
-    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
-  </defs></svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFF8EF" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="GoEase — Just go. We'll plan. Dự án trợ lý lập kế hoạch du lịch Việt Nam theo sở thích, thời gian và ngân sách của bạn."
+    />
+    <title>GoEase — Just go. We'll plan.</title>
+    <link rel="icon" href="assets/goease-logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css?v=20261016-release1" />
+    <link rel="stylesheet" href="controls.css?v=20261016-release1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
+    <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path d="M4 12h15m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="pin" viewBox="0 0 24 24">
+          <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" />
+          <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="plane" viewBox="0 0 24 24">
+          <path d="m3 9 18-6-6 18-4-7-8-5Zm8 5L21 3" />
+        </symbol>
+        <symbol id="compass" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z" />
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="apple" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            stroke="none"
+            d="M17.3 12.5c0-2 1.6-3 1.7-3.1-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.2.8-.6 0-1.6-.8-2.7-.7-1.4 0-2.8.8-3.5 2-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.5 2.1 2.7 2 1.1 0 1.5-.7 2.9-.7 1.3 0 1.7.7 2.9.7 1.2 0 1.9-1 2.6-2 .8-1.2 1.2-2.4 1.2-2.5-.1 0-2.7-1-2.7-3.5ZM15.2 6.3c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.7 1.3-.6.7-1.1 1.7-1 2.7 1 .1 2.1-.5 2.8-1.2Z"
+          />
+        </symbol>
+        <symbol id="play" viewBox="0 0 24 24">
+          <path d="M5 3v18l15-9L5 3Z" />
+        </symbol>
+        <symbol id="wallet" viewBox="0 0 24 24">
+          <path
+            d="M20 8H5a2 2 0 0 1 0-4h13v4M3 6v12a2 2 0 0 0 2 2h15V8m0 4h-5v4h5"
+          />
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+<symbol id="app-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v5m10-5v5M3 11h18m-13 5h3"/></symbol>
+<symbol id="app-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m1-17a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 5v2"/></symbol>
+<symbol id="app-mountain" viewBox="0 0 24 24"><path d="m2 20 7-14 5 8 3-5 5 11H2Zm4-8 3 2 3-3"/></symbol>
+<symbol id="app-culture" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5H3Zm2 3v8m5-8v8m5-8v8m4-8v8M3 22h18"/></symbol>
+<symbol id="app-food" viewBox="0 0 24 24"><path d="M5 3v7m-3-7v5c0 4 6 4 6 0V3M5 12v9m11-18c-4 6-4 11 2 11V3h-2Zm2 11v7"/></symbol>
+<symbol id="app-camera" viewBox="0 0 24 24"><path d="M8 5 6 8H3v12h18V8h-3l-2-3H8Z"/><circle cx="12" cy="13" r="4"/></symbol>
+<symbol id="app-car" viewBox="0 0 24 24"><path d="m4 8 2-5h12l2 5M3 9h18v9H3V9Zm2 9v3m14-3v3M6 13h2m8 0h2"/></symbol>
+<symbol id="app-bed" viewBox="0 0 24 24"><path d="M3 20V7m18 13V9M3 16h18M3 11h18v5M6 11V6h6v5"/></symbol>
+<symbol id="nav-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></symbol>
+      </defs>
+    </svg>
 
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#" aria-label="GoEase"><img src="assets/goease-logo-small.webp" alt="" width="52" height="52"><span>GoEase<span class="brand-tag">Just go. We’ll plan.</span></span></a>
-      <nav class="desktop-nav" aria-label="Điều hướng chính" data-i18n-aria="nav">
-        <a href="#about" data-i18n="navAbout">Về GoEase</a><a href="#tinh-nang" data-i18n="navFeatures">Trải nghiệm</a><a href="#cach-hoat-dong" data-i18n="navSteps">Cách hoạt động</a>
+    <div class="flux-background" aria-hidden="true"><canvas class="flux-lines-canvas"></canvas></div>
+    <div class="header-backdrop" aria-hidden="true"></div>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#ve-goease" aria-label="GoEase"
+          ><img
+            src="assets/goease-logo-small.webp"
+            alt="Logo GoEase"
+            width="48"
+            height="48"
+          /><span>GoEase</span></a
+        >
+        <nav
+          class="desktop-nav"
+          aria-label="Điều hướng chính"
+          data-i18n-aria="nav"
+        >
+          <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Tải xuống</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="motion-control"
+            aria-pressed="false"
+            aria-label="Tạm dừng chuyển động"
+            title="Tạm dừng chuyển động"
+          >
+            <span class="motion-symbol" aria-hidden="true">Ⅱ</span></button
+          ><button
+            id="language"
+            class="language"
+            aria-label="Switch to English"
+          >
+            EN</button
+          ><a class="button button-small nav-cta" href="#tai-ung-dung"
+            ><span data-i18n="comingSoon">Sắp ra mắt</span
+            ><svg aria-hidden="true" class="icon"><use href="#arrow" /></svg></a
+          ><button
+            class="menu-button"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Mở menu"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        hidden
+        aria-label="Điều hướng trên điện thoại"
+        data-i18n-aria="mobileNav"
+      >
+        <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Tải xuống</span></a>
       </nav>
-      <div class="nav-actions"><button class="motion-control" aria-pressed="false" data-i18n-aria="pauseMotion" title="Tạm dừng chuyển động" hidden><span class="motion-symbol" aria-hidden="true">Ⅱ</span></button><button id="language" class="language" aria-label="Switch to English">EN <span>↗</span></button><a href="#tai-ung-dung" class="nav-cta"><span data-i18n="navDownload">Tải ứng dụng</span><svg class="icon"><use href="#arrow"/></svg></a><button class="menu-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Mở menu" data-i18n-aria="menu"><span></span><span></span></button></div>
-    </div>
-    <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Điều hướng trên điện thoại" data-i18n-aria="mobileNav"><a href="#about" data-i18n="navAbout">Về GoEase</a><a href="#tinh-nang" data-i18n="navFeatures">Trải nghiệm</a><a href="#cach-hoat-dong" data-i18n="navSteps">Cách hoạt động</a></nav>
-  </header>
+    </header>
 
-  <main id="main">
-    <section class="hero container" id="ve-goease">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="tiny-dot"></span><span data-i18n="eyebrow">MỘT HÀNH TRÌNH MỚI CÙNG GOEASE</span></div>
-        <h1><span data-i18n="heroLine1">Bạn cứ đi.</span><br><span class="accent" data-i18n="heroLine2">Kế hoạch,</span><br><span data-i18n="heroLine3">để GoEase lo.</span><svg class="hero-plane icon"><use href="#plane"/></svg></h1>
-        <p class="hero-description" data-i18n="heroDescription">Bớt thời gian lên kế hoạch. Thêm thời gian tận hưởng. GoEase hướng đến những chuyến đi được sắp xếp theo sở thích, thời gian và ngân sách của bạn.</p>
-        <div class="store-buttons">
-          <button class="store-button" data-platform="ios"><svg class="store-icon"><use href="#apple"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>App Store</strong></span><span class="store-arrow">↗</span></button>
-          <button class="store-button" data-platform="android"><svg class="store-icon play-icon"><use href="#play"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>Google Play</strong></span><span class="store-arrow">↗</span></button>
+    <main id="main">
+      <section
+        class="hero container ambient-motion"
+        id="ve-goease"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-intro">
+          <div class="hero-heading">
+            <p class="eyebrow">
+              <span class="status-dot"></span
+              ><span data-i18n="heroKicker">VIỆT NAM, THEO CÁCH CỦA BẠN</span>
+            </p>
+            <h1 id="hero-title">Just go.<br /><em>We'll plan.</em></h1>
+
+          </div>
+            <div class="hero-flight" aria-hidden="true">
+              <svg viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <image class="hero-bay-landscape" href="assets/hero-halong-landscape.webp" x="0" y="0" width="360" height="270" preserveAspectRatio="xMidYMid meet" />
+                <path class="hero-flight-base" d="M-12 245 C88 244 159 201 219 144 S302 72 367 7"/>
+                <path class="hero-flight-route" pathLength="1" d="M-12 245 C88 244 159 201 219 144 S302 72 367 7"/>
+                <g class="hero-aircraft">
+                  <g class="hero-plane-body">
+                    <image href="assets/hero-airliner.webp" x="-55" y="-27.5" width="110" height="55" preserveAspectRatio="xMidYMid meet" />
+                  </g>
+                </g>
+                </g>
+              </svg>
+              <canvas class="hero-aircraft-canvas" aria-hidden="true"></canvas>
+            </div>
+          <div class="hero-copy">
+            <p class="hero-lead" data-i18n="heroLead">
+              Chuyến đi của bạn.<br />Một khởi đầu nhẹ tênh.
+            </p>
+            <p data-i18n="heroBody">
+              Trợ lý lập kế hoạch du lịch với AI, theo sở thích và ngân sách của
+              bạn.
+            </p>
+            <a class="button" href="#trai-nghiem"
+              ><span data-i18n="heroAction">Khám phá trải nghiệm</span
+              ><svg aria-hidden="true" class="icon">
+                <use href="#arrow" /></svg></a
+            ><span class="hero-status" data-i18n="heroStatus"
+              >Đang phát triển · Dành cho iOS & Android</span
+            >
+          </div>
         </div>
-        <p class="release-note"><span class="tiny-dot"></span><span data-i18n="releaseNote">Đang phát triển · Dành cho iOS & Android</span></p>
-        <a href="#trai-nghiem" class="text-link"><span data-i18n="exploreDesign">Khám phá GoEase</span><svg class="icon"><use href="#arrow"/></svg></a>
-      </div>
-      <div class="hero-visual">
-        <div class="travel-photo destination-slideshow" role="region" aria-roledescription="carousel" aria-label="Cảm hứng du lịch Việt Nam" data-i18n-aria="slideshowLabel" tabindex="0">
-          <picture class="slide-layer is-active"><img class="slide-image" src="assets/ha-long-960.webp" srcset="assets/ha-long-480.webp 480w, assets/ha-long-960.webp 960w, assets/ha-long-1280.webp 1280w" sizes="(max-width: 600px) calc(100vw - 60px), (max-width: 860px) 45vw, 540px" width="1280" height="640" alt="Minh họa vịnh Hạ Long với núi đá và thuyền trong ánh hoàng hôn" fetchpriority="high"></picture>
-          <picture class="slide-layer" aria-hidden="true"><img class="slide-image" width="1280" height="853" alt="" decoding="async"></picture>
-          <span class="photo-label"><svg class="icon"><use href="#pin"/></svg><span id="slide-destination">Hạ Long, Việt Nam</span></span>
-          <div class="slideshow-controls"><div class="slide-arrows"><button class="slide-previous" aria-label="Điểm đến trước" data-i18n-aria="slidePrevious"><span aria-hidden="true">‹</span></button><button class="slide-next" aria-label="Điểm đến tiếp theo" data-i18n-aria="slideNext"><span aria-hidden="true">›</span></button></div><div class="slide-indicators" aria-label="Chọn điểm đến" data-i18n-aria="slideIndicators"><button class="slide-indicator" data-slide="0" aria-label="Hạ Long, ảnh 1 / 4" aria-current="true"><span></span></button><button class="slide-indicator" data-slide="1" aria-label="Hội An, ảnh 2 / 4"><span></span></button><button class="slide-indicator" data-slide="2" aria-label="Sa Pa, ảnh 3 / 4"><span></span></button><button class="slide-indicator" data-slide="3" aria-label="Đà Lạt, ảnh 4 / 4"><span></span></button></div></div>
-          <span id="slide-error" class="slide-error" role="status" hidden></span><span id="slide-announcement" class="sr-only" aria-live="polite"></span>
-          <div class="photo-title"><span data-i18n="photoSmall">ĐI XA HƠN. SỐNG TRỌN HƠN.</span><strong>More than<br>a trip.</strong></div>
+        <div
+          class="destination-slideshow"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Cảm hứng du lịch Việt Nam"
+          data-i18n-aria="slideshowLabel"
+          tabindex="0"
+        >
+          <picture class="slide-layer is-active"
+            ><img
+              class="slide-image"
+              src="assets/ha-long-1280.webp"
+              srcset="
+                assets/ha-long-480.webp   480w,
+                assets/ha-long-960.webp   960w,
+                assets/ha-long-1280.webp 1280w
+              "
+              sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 1320px) calc(100vw - 80px), 1280px"
+              width="1280"
+              height="640"
+              alt="Minh họa vịnh Hạ Long với núi đá và thuyền trong ánh hoàng hôn"
+              fetchpriority="high"
+          /></picture>
+          <picture class="slide-layer" aria-hidden="true"
+            ><img
+              class="slide-image"
+              width="1280"
+              height="853"
+              alt=""
+              decoding="async"
+          /></picture>
+          <div class="scene-top">
+            <span class="scene-label"
+              ><svg aria-hidden="true" class="icon"><use href="#compass" /></svg
+              ><span data-i18n="sceneKicker">MỞ RA MỘT HÀNH TRÌNH</span></span
+            ><span class="scene-index" aria-hidden="true">01 / 04</span><span class="scene-coordinate" aria-hidden="true">Vịnh &amp; những kỳ quan</span>
+          </div>
+          <div class="scene-bottom">
+            <div class="scene-place">
+              <span class="scene-country"
+                ><svg aria-hidden="true" class="icon"><use href="#pin" /></svg
+                ><span data-i18n="vietnam">VIỆT NAM</span></span
+              >
+              <h2 id="slide-destination">Hạ Long</h2>
+              <p id="slide-caption">
+                Giữa những kỳ quan, tìm một khoảng thảnh thơi.
+              </p>
+            </div>
+            <a
+              class="scene-invitation"
+              href="#cach-hoat-dong"
+              aria-label="Xem cách GoEase lên kế hoạch"
+              data-i18n-aria="scenePlanLabel"
+              ><span class="invitation-icon"
+                ><svg aria-hidden="true" class="icon">
+                  <use href="#plane" /></svg></span
+              ><span
+                ><small data-i18n="scenePlanSmall"
+                  >BẠN CHỌN ĐIỂM ĐẾN</small
+                ><strong data-i18n="scenePlan"
+                  >GoEase cùng bạn lên kế hoạch</strong
+                ></span
+              ><svg aria-hidden="true" class="icon"><use href="#arrow" /></svg
+            ></a>
+          </div>
+          <span id="slide-error" class="slide-error" role="status" hidden></span
+          ><span
+            id="slide-announcement"
+            class="sr-only"
+            aria-live="polite"
+          ></span>
         </div>
-        <div class="postcard"><span class="postcard-header"><span data-i18n="yourNextTrip">CHUYẾN ĐI TIẾP THEO CỦA BẠN</span><svg class="icon"><use href="#plane"/></svg></span><strong>Hạ Long – Cát Bà</strong><div class="postcard-meta"><span data-i18n="sampleTrip">3 ngày · 4 người</span><span class="sample-badge" data-i18n="example">VÍ DỤ</span></div><div class="postcard-row"><span class="round-icon"><svg class="icon"><use href="#compass"/></svg></span><span><b data-i18n="tripStyle">Thiên nhiên & thư giãn</b><small data-i18n="tripStyleNote">Một hành trình, theo cách của bạn</small></span><svg class="icon"><use href="#check"/></svg></div></div>
-        <span class="journey-stamp">JUST GO.<br><b>WE’LL PLAN.</b><svg class="icon"><use href="#plane"/></svg></span>
-        <div class="visual-caption"><span>01 / GO EXPLORE</span><span data-i18n="visualCaption">Khởi đầu bằng một điểm đến.</span></div>
+        <div class="scene-rail slideshow-controls">
+<div class="scene-rail-heading"><span class="rail-note" data-i18n="railNote">ĐI XA HƠN. SỐNG TRỌN HƠN.</span><div class="scene-arrows"><button class="slide-previous circle-button" aria-label="Điểm đến trước" data-i18n-aria="slidePrevious">←</button><button class="slide-next circle-button" aria-label="Điểm đến tiếp theo" data-i18n-aria="slideNext">→</button></div></div>
+<div class="destination-selector"><div class="slide-indicators" aria-label="Chọn điểm đến" data-i18n-aria="slideIndicators"><button class="slide-indicator destination-card" data-slide="0" aria-label="Hạ Long, ảnh 1 / 4" aria-current="true"><img src="assets/ha-long-480.webp" width="96" height="72" alt="" loading="lazy"/><span class="destination-card-copy"><small>01 <span data-i18n="destinationbay">Vịnh & những kỳ quan</span></small><strong>Hạ Long</strong></span><span class="destination-progress" aria-hidden="true"><i></i></span></button><button class="slide-indicator destination-card" data-slide="1" aria-label="Hội An, ảnh 2 / 4" ><img src="assets/hoi-an-480.webp" width="96" height="72" alt="" loading="lazy"/><span class="destination-card-copy"><small>02 <span data-i18n="destinationoldTown">Phố cổ & ánh đèn</span></small><strong>Hội An</strong></span><span class="destination-progress" aria-hidden="true"><i></i></span></button><button class="slide-indicator destination-card" data-slide="2" aria-label="Sa Pa, ảnh 3 / 4" ><img src="assets/sa-pa-480.webp" width="96" height="72" alt="" loading="lazy"/><span class="destination-card-copy"><small>03 <span data-i18n="destinationmountains">Núi rừng & mây trời</span></small><strong>Sa Pa</strong></span><span class="destination-progress" aria-hidden="true"><i></i></span></button><button class="slide-indicator destination-card" data-slide="3" aria-label="Đà Lạt, ảnh 4 / 4" ><img src="assets/da-lat-480.webp" width="96" height="72" alt="" loading="lazy"/><span class="destination-card-copy"><small>04 <span data-i18n="destinationhighlands">Cao nguyên & bình yên</span></small><strong>Đà Lạt</strong></span><span class="destination-progress" aria-hidden="true"><i></i></span></button></div></div>
+</div>
+      </section>
+
+      <section
+        class="idea-section story-demo container section ambient-motion"
+        id="tinh-nang"
+        aria-labelledby="idea-title"
+      >
+        <div
+          class="story-screen"
+          aria-label="Màn hình mô phỏng lập kế hoạch"
+          data-i18n-aria="storyScreen"
+        >
+          <div class="story-toolbar">
+            <span
+              ><img
+                src="assets/goease-logo-small.webp"
+                width="28"
+                height="28"
+                alt=""
+              />GoEase</span
+            ><small data-i18n="storySample">MÔ PHỎNG</small>
+          </div>
+          <div class="story-destination">
+            <img
+              src="assets/hoi-an-960.webp"
+              srcset="assets/hoi-an-480.webp 480w, assets/hoi-an-960.webp 960w"
+              sizes="(max-width: 700px) 90vw, 40vw"
+              width="960"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              alt="Những ngôi nhà phố cổ và thuyền bên sông Hội An"
+              data-i18n-alt="hoiAnAlt"
+            />
+            <div>
+              <small data-i18n="storyTrip">CHUYẾN ĐI CỦA BẠN</small
+              ><strong>Hội An</strong
+              ><span data-i18n="storyMeta">3 ngày · 4 người · 10.000.000đ</span>
+            </div>
+          </div>
+          <div class="story-workspace" id="story-preview-body">
+            <section class="story-view" data-story-view="0">
+              <p class="eyebrow" data-i18n="interests">Những điều bạn thích</p>
+              <h3 data-i18n="storyPick">Điều gì khiến bạn háo hức?</h3>
+              <div class="story-chips">
+                <span data-story-reveal="1"
+                  ><svg class="icon" aria-hidden="true"><use href="#sun" /></svg
+                  ><b data-i18n="food">Ẩm thực</b><i>✓</i></span
+                ><span data-story-reveal="2"
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#compass" /></svg
+                  ><b data-i18n="culture">Văn hóa</b><i>✓</i></span
+                ><span class="story-chip-quiet"
+                  ><svg class="icon" aria-hidden="true"><use href="#pin" /></svg
+                  ><b data-i18n="nature">Thiên nhiên</b></span
+                >
+              </div>
+              <div class="story-result" data-story-reveal="3">
+                <span class="story-check">✓</span>
+                <div>
+                  <strong data-i18n="storyMatch"
+                    >Hành trình theo sở thích.</strong
+                  ><small data-i18n="storyMatchNote"
+                    >Kế hoạch mẫu cho cả nhóm.</small
+                  >
+                </div>
+              </div>
+            </section>
+            <section class="story-view" data-story-view="1" hidden>
+              <p class="eyebrow" data-i18n="yourItinerary">
+                LỊCH TRÌNH CỦA BẠN
+              </p>
+              <h3 data-i18n="storyDay">Một ngày ở Hội An.</h3>
+              <div class="story-timeline">
+                <div data-story-reveal="1">
+                  <time>08:00</time
+                  ><span
+                    ><b data-story-label="walk">Dạo phố cổ</b
+                    ><small data-story-label="walkNote"
+                      >Một buổi sáng thật chậm</small
+                    ></span
+                  ><i>01</i>
+                </div>
+                <div data-story-reveal="2">
+                  <time>12:00</time
+                  ><span
+                    ><b data-story-label="lunch">Thử món ngon địa phương</b
+                    ><small data-story-label="lunchNote"
+                      >Có chỗ cho những hương vị mới</small
+                    ></span
+                  ><i>02</i>
+                </div>
+                <div data-story-reveal="3">
+                  <time>17:00</time
+                  ><span
+                    ><b data-story-label="river">Ngắm chiều bên sông Hoài</b
+                    ><small data-story-label="riverNote"
+                      >Khoảng nghỉ dành riêng cho bạn</small
+                    ></span
+                  ><i>03</i>
+                </div>
+              </div>
+            </section>
+            <section class="story-view" data-story-view="2" hidden>
+              <p class="eyebrow" data-i18n="tripBudget">NGÂN SÁCH CHUYẾN ĐI</p>
+              <h3>
+                8.200.000đ
+                <small data-i18n="groupTotal">Cho cả nhóm 4 người</small>
+              </h3>
+              <div class="story-costs">
+                <div data-story-reveal="1">
+                  <span data-i18n="transport">Di chuyển</span><b>2.000.000đ</b
+                  ><i style="--cost: 40%"></i>
+                </div>
+                <div data-story-reveal="2">
+                  <span data-i18n="stay">Lưu trú</span><b>3.200.000đ</b
+                  ><i style="--cost: 64%"></i>
+                </div>
+                <div data-story-reveal="3">
+                  <span data-i18n="meals">Ăn uống</span><b>2.000.000đ</b
+                  ><i style="--cost: 40%"></i>
+                </div>
+                <div data-story-reveal="4">
+                  <span data-i18n="activities">Trải nghiệm</span
+                  ><b>1.000.000đ</b><i style="--cost: 20%"></i>
+                </div>
+              </div>
+              <p
+                class="story-remaining"
+                data-story-reveal="4"
+                data-i18n="budgetRemaining"
+              >
+                Còn 1.800.000đ trong ngân sách mẫu
+              </p>
+            </section>
+          </div>
+          <div class="story-screen-footer">
+            <span class="story-screen-status-group"><span class="status-dot" aria-hidden="true"></span><span class="story-screen-status"></span></span>
+            <div class="story-screen-nav" role="group" aria-label="Chuyển bước mô phỏng">
+              <button type="button" class="story-screen-previous circle-button" data-story-direction="-1" aria-label="Bước trước" aria-controls="story-preview-body"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+              <span class="story-counter" aria-live="polite" aria-atomic="true">01 / 03</span>
+              <button type="button" class="story-screen-next circle-button" data-story-direction="1" aria-label="Bước tiếp theo" aria-controls="story-preview-body"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="idea-copy">
+          <p class="eyebrow" data-i18n="ideaKicker">01 / HÌNH DUNG CHUYẾN ĐI</p>
+          <h2 id="idea-title">
+            <span data-i18n="ideaTitle">Háo hức cho chuyến đi.</span><br /><em
+              data-i18n="ideaTitleEm"
+              >Nhẹ đầu với kế hoạch.</em
+            >
+          </h2>
+          <p class="idea-description" data-i18n="ideaBody">
+            Từ những điều bạn thích, cùng hình dung một chuyến đi ở Hội An.
+          </p>
+          <div class="story-narrator">
+            <div class="story-speaker">
+              <span class="story-avatar"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#compass" /></svg></span
+              ><span
+                >GoEase<small data-i18n="storyGuide"
+                  >GOEASE DẪN CHUYỆN</small
+                ></span
+              ><span class="story-counter">01 / 03</span>
+            </div>
+            <h3 class="story-title">Bắt đầu bằng điều bạn thích</h3>
+            <p class="story-typed" aria-hidden="true">
+              Nói với mình bạn thích gì nhé. Ví dụ: 3 ngày ở Hội An, đi 4 người,
+              thích ẩm thực và văn hóa. Bắt đầu từ những điều bạn muốn trải
+              nghiệm.
+            </p>
+            <p class="story-readable sr-only">
+              Nói với mình bạn thích gì nhé. Ví dụ: 3 ngày ở Hội An, đi 4 người,
+              thích ẩm thực và văn hóa. Bắt đầu từ những điều bạn muốn trải
+              nghiệm.
+            </p>
+            <div class="story-progress" aria-hidden="true"><span></span></div>
+          <div class="story-controls">
+            <div
+              class="story-steps"
+              role="group"
+              aria-label="Chọn bước mô phỏng"
+              data-i18n-aria="storySteps"
+            >
+              <button data-story-step="0" aria-pressed="true">
+                <span>01</span><b data-i18n="storyStep1">Sở thích</b></button
+              ><button data-story-step="1" aria-pressed="false">
+                <span>02</span><b data-i18n="storyStep2">Lịch trình</b></button
+              ><button data-story-step="2" aria-pressed="false">
+                <span>03</span><b data-i18n="storyStep3">Chi phí</b>
+              </button>
+            </div>
+            <div class="story-playback">
+              <button class="story-play">Ⅱ Tạm dừng demo</button
+              ><button class="story-replay" data-i18n="storyReplay">
+                ↻ Xem lại
+              </button>
+            </div>
+          </div>
+
+          </div>
+          <p class="small-note" data-i18n="plannedNote">
+            Minh họa sản phẩm đang phát triển.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="product-section"
+        id="trai-nghiem"
+        aria-labelledby="product-title"
+      >
+        <div class="container">
+          <div class="product-guide" id="cach-hoat-dong">
+            <div class="guide-side">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="productKicker">
+              02 / KHÁM PHÁ GOEASE
+            </p>
+            <div class="heading-row">
+              <h2 id="product-title">
+                <span data-i18n="productTitle">Một ý tưởng.</span><br /><em
+                  data-i18n="productTitleEm"
+                  >Cả một hành trình.</em
+                >
+              </h2>
+              <p data-i18n="productBody">
+                Thử chọn từng bước để xem giao diện minh họa.
+              </p>
+            </div>
+          </div>
+
+              <div
+                class="guide-tabs"
+                role="tablist"
+                aria-label="Các bước lập kế hoạch minh họa"
+                aria-orientation="vertical"
+                data-i18n-aria="guideLabel"
+              >
+                <button
+                  class="guide-tab"
+                  id="guide-tab-0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="guide-panel-0"
+                  data-preview="0"
+                >
+                  <span class="guide-number">01</span
+                  ><span
+                    ><strong data-i18n="guide1">Chọn chuyến đi</strong
+                    ><span class="guide-description" data-i18n="guide1Body"
+                      >Điểm đến, thời gian và sở thích.</span
+                    ></span
+                  ><span class="guide-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button
+                  class="guide-tab"
+                  id="guide-tab-1"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="guide-panel-1"
+                  tabindex="-1"
+                  data-preview="1"
+                >
+                  <span class="guide-number">02</span
+                  ><span
+                    ><strong data-i18n="guide2">Xem lịch trình</strong
+                    ><span class="guide-description" data-i18n="guide2Body"
+                      >Khám phá và điều chỉnh từng ngày.</span
+                    ></span
+                  ><span class="guide-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button
+                  class="guide-tab"
+                  id="guide-tab-2"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="guide-panel-2"
+                  tabindex="-1"
+                  data-preview="2"
+                >
+                  <span class="guide-number">03</span
+                  ><span
+                    ><strong data-i18n="guide3">Xem chi phí</strong
+                    ><span class="guide-description" data-i18n="guide3Body"
+                      >Dự toán rõ ràng cho cả nhóm.</span
+                    ></span
+                  ><span class="guide-arrow" aria-hidden="true">↗</span>
+                </button>
+              </div>
+              <div class="guide-disclaimer">
+                <span class="status-dot"></span>
+                <p data-i18n="previewNote">
+                  Giao diện minh họa · Chưa phát hành.
+                </p>
+              </div>
+            </div>
+            <div class="product-stage ambient-motion" data-step="0">
+<div class="phone-demo-intro"><span class="demo-intro-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 13 9-6 1-3 6-4-16Z"/><path d="m15 17 3 4M3 8H1M8 1V0M19 4l2-2"/></svg></span><div><strong class="demo-intro-title">Bạn có thể thao tác trực tiếp trên điện thoại này</strong><p class="demo-intro-description">Bấm vào các ô, nút và tab để dùng thử bản demo.</p></div></div>
+<div class="stage-scenography" aria-hidden="true">
+<svg class="stage-map" viewBox="0 0 680 900" preserveAspectRatio="none"><g class="stage-contours"><path d="M-70 70C190 60 35 320 90 430S230 760 40 920"/><path d="M-40 50C215 110 70 310 120 445S260 745 80 940"/><path d="M-15 20C250 150 100 305 150 460S290 730 120 960"/><path d="M760 20C480 70 650 290 580 410S430 730 650 940"/><path d="M730 0C450 100 620 300 550 425S400 750 610 960"/><path d="M700-20C420 130 590 310 520 440S370 770 570 980"/></g><path class="stage-travel-line" d="M88 120C-5 300 180 470 92 740M580 135C690 320 470 560 582 770"/><g class="stage-map-pins"><circle cx="88" cy="120" r="7"/><circle cx="92" cy="740" r="7"/><circle cx="580" cy="135" r="7"/><circle cx="582" cy="770" r="7"/></g></svg>
+<div class="stage-halo"></div>
+<div class="stage-chip stage-chip-destination"><svg class="icon" aria-hidden="true"><use href="#pin" /></svg><div><small>VIỆT NAM</small><strong>Hạ Long<br/> Cát Bà</strong></div><span class="stage-chip-dot"></span></div>
+<div class="stage-chip stage-chip-plan"><svg class="icon" aria-hidden="true"><use href="#compass" /></svg><div><small data-i18n="stagePlan">Một chuyến đi</small><strong data-i18n="stageReady">Theo cách bạn</strong></div><span class="stage-chip-dot"></span></div>
+</div><button type="button" class="phone-action-hint" aria-label="Nhấn nút trong điện thoại để thao tác thử"><svg class="hint-arrow-desktop" viewBox="0 0 42 48" fill="none" aria-hidden="true"><path d="M40 8C24-2 8 9 3 31m0 0 1-10m-1 10 10-4"/></svg><svg class="hint-arrow-mobile" viewBox="0 0 30 52" fill="none" aria-hidden="true"><path d="M15 50C5 33 9 18 15 3m0 0-7 7m7-7 5 9"/></svg><span class="phone-hint-copy"><strong class="phone-hint-title">Nhấn để xem lịch trình</strong><small class="phone-hint-note">Demo tương tác</small></span><span aria-hidden="true" class="phone-hint-tap">↗</span></button><div class="phone app-phone"><div class="phone-camera" aria-hidden="true"></div><div class="phone-status" aria-hidden="true"><span>9:41</span><svg class="device-signal" viewBox="0 0 48 15" fill="currentColor" aria-hidden="true"><path d="M1 10h3v4H1zm5-3h3v7H6zm5-3h3v10h-3zm5-3h3v13h-3z"/><path d="M23 5q5-5 10 0l-1.5 1.5q-3.5-3.5-7 0zm3 3q2-2 4 0l-2 3z"/><rect x="36" y="3" width="10" height="9" rx="2" fill="none" stroke="currentColor"/><rect x="38" y="5" width="6" height="5" rx="1"/><path d="M47 6h1v3h-1z"/></svg></div><div class="app-topbar"><button type="button" class="phone-back" aria-label="Quay lại bước trước" title="Quay lại bước trước" disabled><span aria-hidden="true">‹</span></button><strong class="phone-view-title" data-i18n="appCreateTrip">Tạo chuyến đi</strong><svg class="icon" aria-hidden="true"><use href="#plane" /></svg></div><div id="guide-panel-0" class="phone-screen app-create" role="tabpanel" aria-labelledby="guide-tab-0" tabindex="0">
+<ol class="app-stepper" aria-label="Các bước tạo chuyến đi" data-i18n-aria="appCreateSteps"><li class="is-active"><b>1</b><span data-i18n="appBasic">Thông tin</span></li><li class=""><b>2</b><span data-i18n="appInterests">Sở thích</span></li><li class=""><b>3</b><span data-i18n="appCustomize">Tùy chỉnh</span></li><li class=""><b>4</b><span data-i18n="appComplete">Hoàn tất</span></li></ol><h3 data-i18n="appStart">Bắt đầu hành trình của bạn</h3><p class="app-screen-intro" data-i18n="appStartNote">Một vài thông tin để lên kế hoạch phù hợp.</p>
+<div class="app-form"><div class="app-field"><small data-i18n="appDestination">Điểm đến</small><div><svg class="icon" aria-hidden="true"><use href="#pin" /></svg><strong>Hạ Long, Quảng Ninh</strong><span aria-hidden="true">⌄</span></div></div><div class="app-field"><small data-i18n="appTravelDates">Thời gian</small><div><svg class="icon" aria-hidden="true"><use href="#app-calendar" /></svg><strong data-i18n="appDatesValue">12/06 → 14/06 · 3 ngày</strong><span aria-hidden="true">⌄</span></div></div><div class="app-field"><small data-i18n="appTravelers">Số lượng người</small><div><svg class="icon" aria-hidden="true"><use href="#app-users" /></svg><strong data-i18n="fourPeople">4 người</strong><span aria-hidden="true">⌄</span></div></div><div class="app-field"><small data-i18n="appBudgetEstimate">Ngân sách (ước tính)</small><div><svg class="icon" aria-hidden="true"><use href="#wallet" /></svg><strong>5.000.000 – 10.000.000đ</strong><span aria-hidden="true">⌄</span></div></div></div>
+<p class="app-field-label" data-i18n="appTravelStyle">Phong cách du lịch</p><div class="app-interest-grid"><span class="is-selected"><svg class="icon" aria-hidden="true"><use href="#app-mountain" /></svg><span data-i18n="nature">Thiên nhiên</span></span><span class=""><svg class="icon" aria-hidden="true"><use href="#app-culture" /></svg><span data-i18n="culture">Văn hóa</span></span><span class=""><svg class="icon" aria-hidden="true"><use href="#app-food" /></svg><span data-i18n="food">Ẩm thực</span></span><span class=""><svg class="icon" aria-hidden="true"><use href="#sun" /></svg><span data-i18n="appRelax">Nghỉ dưỡng</span></span><span class=""><svg class="icon" aria-hidden="true"><use href="#compass" /></svg><span data-i18n="appAdventure">Phiêu lưu</span></span><span class=""><svg class="icon" aria-hidden="true"><use href="#app-camera" /></svg><span data-i18n="appPhoto">Chụp ảnh</span></span></div>
+<div class="app-smart-tip"><svg class="icon" aria-hidden="true"><use href="#sun" /></svg><div><strong data-i18n="appSmartTip">Gợi ý thông minh</strong><p data-i18n="appSmartTipNote">Khám phá những trải nghiệm hợp sở thích của bạn.</p></div></div>
+<button class="app-primary app-orange" data-screen-target="1"><span data-i18n="appNext">Tiếp theo</span><svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></button>
+</div><div id="guide-panel-1" class="phone-screen app-itinerary" role="tabpanel" aria-labelledby="guide-tab-1" tabindex="0" hidden>
+<p class="app-trip-meta">12 – 14/06 · <span data-i18n="fourPeople">4 người</span></p>
+<div class="app-cover"><img src="assets/ha-long-480.webp" width="480" height="240" alt="" loading="lazy"/><span data-i18n="appMoments">Những khoảnh khắc đáng nhớ</span></div><div class="app-trip-tabs" aria-hidden="true"><span class="is-active" data-i18n="appItinerary">Lịch trình</span><span data-i18n="appDetails">Chi tiết</span><span data-i18n="appBudget">Ngân sách</span><span data-i18n="appMembers">Thành viên</span></div>
+<div class="day-controls" role="group" aria-label="Ngày của lịch trình mẫu" data-i18n-aria="dayLabel"><button data-day="0" aria-pressed="true" data-i18n="day1">Ngày 1</button><button data-day="1" aria-pressed="false" data-i18n="day2">Ngày 2</button><button data-day="2" aria-pressed="false" data-i18n="day3">Ngày 3</button></div>
+<div class="sample-timeline" aria-live="polite"></div>
+<div class="app-mini-map" aria-hidden="true"><svg viewBox="0 0 300 65"><path d="M-10 55Q55 0 120 40T310 0"/><circle cx="63" cy="27" r="6"/><circle cx="230" cy="32" r="6"/></svg><span>Hạ Long</span><span>Cát Bà</span><svg class="icon" aria-hidden="true"><use href="#pin" /></svg></div>
+<div class="phone-summary"><svg class="icon" aria-hidden="true"><use href="#wallet" /></svg><span data-i18n="estimatedTotal">Tổng dự kiến</span><strong>8.200.000đ</strong></div>
+<button class="app-primary" data-screen-target="2"><span data-i18n="appViewBudget">Xem chi phí</span><svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></button>
+</div><div id="guide-panel-2" class="phone-screen app-budget" role="tabpanel" aria-labelledby="guide-tab-2" tabindex="0" hidden>
+<p class="app-trip-meta">Hạ Long – Cát Bà · <span data-i18n="fourPeople">4 người</span></p><div class="app-trip-tabs" aria-hidden="true"><span data-i18n="appItinerary">Lịch trình</span><span data-i18n="appDetails">Chi tiết</span><span class="is-active" data-i18n="appBudget">Ngân sách</span><span data-i18n="appMembers">Thành viên</span></div>
+<div class="app-budget-overview"><div class="app-budget-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="ring-track" cx="50" cy="50" r="40"/><circle class="ring-value" cx="50" cy="50" r="40" pathLength="100"/></svg><strong>82%</strong></div><div><small data-i18n="estimatedTotal">Tổng dự kiến</small><strong>8.200.000<span>đ</span></strong><p data-i18n="groupTotal">Cho cả nhóm 4 người</p></div></div>
+<div class="app-budget-remaining"><svg class="icon" aria-hidden="true"><use href="#check" /></svg><div><strong data-i18n="appWithinBudget">Trong ngân sách</strong><p data-i18n="budgetRemaining">Còn 1.800.000đ trong ngân sách mẫu</p></div></div>
+<h3 data-i18n="appCostBreakdown">Chi phí theo hạng mục</h3><div class="app-cost-list"><div><span class="app-cost-icon"><svg class="icon" aria-hidden="true"><use href="#app-car" /></svg></span><div><span data-i18n="transport">Di chuyển</span><i><span style="width:29%"></span></i></div><strong>2.400.000đ</strong></div><div><span class="app-cost-icon"><svg class="icon" aria-hidden="true"><use href="#app-bed" /></svg></span><div><span data-i18n="stay">Lưu trú</span><i><span style="width:37%"></span></i></div><strong>3.000.000đ</strong></div><div><span class="app-cost-icon"><svg class="icon" aria-hidden="true"><use href="#app-food" /></svg></span><div><span data-i18n="meals">Ăn uống</span><i><span style="width:20%"></span></i></div><strong>1.600.000đ</strong></div><div><span class="app-cost-icon"><svg class="icon" aria-hidden="true"><use href="#compass" /></svg></span><div><span data-i18n="activities">Trải nghiệm</span><i><span style="width:14%"></span></i></div><strong>1.200.000đ</strong></div></div>
+<div class="app-split"><svg class="icon" aria-hidden="true"><use href="#app-users" /></svg><div><span data-i18n="appPerPerson">Dự kiến mỗi người</span><strong>2.050.000đ</strong></div></div>
+<div class="app-smart-tip"><svg class="icon" aria-hidden="true"><use href="#sun" /></svg><div><strong data-i18n="appBudgetTip">Chủ động trước chuyến đi</strong><p data-i18n="samplePrices">Chi phí mẫu, không phải báo giá</p></div></div>
+<button class="app-primary" data-screen-target="1"><svg class="icon" aria-hidden="true"><use href="#arrow" /></svg><span data-i18n="appBackItinerary">Về lịch trình</span></button>
+</div><div class="app-home-indicator" aria-hidden="true"></div></div>              <div class="stage-caption">
+                <span class="preview-count">01 / 03</span
+                ><span class="preview-current-label" data-i18n="guide1"
+                  >Chọn chuyến đi</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="community-section community-story container section ambient-motion"
+        id="about"
+        aria-labelledby="community-title"
+      >
+        <div class="community-copy">
+          <p class="eyebrow" data-i18n="communityKicker">03 / CÙNG GOEASE</p>
+          <h2 id="community-title">
+            <span data-i18n="communityTitle">Một hành trình mới.</span><br /><em
+              data-i18n="communityTitleEm"
+              >Bạn đi cùng chứ?</em
+            >
+          </h2>
+          <p data-i18n="communityBody">
+            GoEase muốn giúp việc chuẩn bị chuyến đi nhẹ nhàng hơn, để bạn tự do
+            khám phá Việt Nam.
+          </p>
+          <div
+            class="development-track"
+            aria-label="Dự án đang trong giai đoạn phát triển"
+            data-i18n-aria="developmentLabel"
+          >
+            <span data-i18n="idea">Ý tưởng</span
+            ><span class="is-current"
+              ><i class="status-dot"></i
+              ><span data-i18n="development">Đang phát triển</span></span
+            ><span data-i18n="launch">Ra mắt</span>
+          </div>
+          <p data-i18n="communityFollow">
+            Theo dõi những bước phát triển mới trên fanpage.
+          </p>
+          <a
+            class="text-link"
+            href="https://www.facebook.com/profile.php?id=61594839483458"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span data-i18n="facebookVisit">Ghé thăm GoEase trên Facebook</span
+            ><svg aria-hidden="true" class="icon"><use href="#arrow" /></svg></a
+          ><span class="community-signoff">See you out there.</span>
+        </div>
+        <article
+          class="community-post"
+          id="goease-intro-post"
+          aria-labelledby="intro-post-title"
+        >
+          <header class="community-post-header">
+            <img
+              src="assets/goease-logo-small.webp"
+              width="48"
+              height="48"
+              alt="Logo GoEase"
+            />
+            <div>
+              <a
+                href="https://www.facebook.com/profile.php?id=61594839483458"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GO EASE</a
+              >
+              <p data-i18n="introPostMeta">
+                Giới thiệu GoEase · Đang phát triển
+              </p>
+            </div>
+            <svg class="icon" aria-hidden="true"><use href="#compass" /></svg>
+          </header>
+          <div class="community-post-copy">
+            <p class="eyebrow" data-i18n="introPostKicker">
+              MỘT LỜI CHÀO TỪ GOEASE
+            </p>
+            <h3 id="intro-post-title" data-i18n="introPostTitle">
+              Xin chào, chúng mình là GoEase.
+            </h3>
+            <p data-i18n="introPostBody">
+              GoEase đang xây dựng trợ lý du lịch với AI, lên kế hoạch theo sở
+              thích, thời gian và ngân sách của bạn.
+            </p>
+            <p data-i18n="introPostDevelopment">
+              Dự án đang phát triển. Ghé fanpage để theo dõi hành trình của tụi
+              mình.
+            </p>
+            <p
+              class="community-post-invitation"
+              data-i18n="introPostInvitation"
+            >
+              Cùng tụi mình lên đường nhé.
+            </p>
+            <div
+              class="community-post-tags"
+              aria-label="Chủ đề bài viết"
+              data-i18n-aria="introPostTags"
+            >
+              <span>#GoEase</span><span>#JustGoWellPlan</span
+              ><span>#TravelVietnam</span>
+            </div>
+          </div>
+          <div class="community-post-visual">
+            <img
+              src="assets/ha-long-960.webp"
+              srcset="
+                assets/ha-long-480.webp   480w,
+                assets/ha-long-960.webp   960w,
+                assets/ha-long-1280.webp 1280w
+              "
+              sizes="(max-width: 860px) 90vw, 50vw"
+              width="960"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              alt="Minh họa vịnh Hạ Long, hình ảnh thương hiệu GoEase"
+              data-i18n-alt="introPostImage"
+            />
+            <span class="community-post-visual-label">GOEASE / VIETNAM</span
+            ><strong>Just go.<br /><em>We'll plan.</em></strong>
+          </div>
+          <footer class="community-post-footer">
+            <p data-i18n="introPostSource">
+              Bài giới thiệu trên website GoEase.
+            </p>
+            <div class="community-post-actions">
+              <a
+                href="https://www.facebook.com/permalink.php?story_fbid=122100927537494649&amp;id=61594839483458"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+                ><span data-i18n="introPostOriginal">Xem bài gốc</span></a
+              >
+              <a
+                href="https://www.facebook.com/profile.php?id=61594839483458"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#compass" /></svg
+                ><span data-i18n="introPostPage">Ghé fanpage</span></a
+              >
+              <a
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D122100927537494649%26id%3D61594839483458"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span aria-hidden="true">↗</span
+                ><span data-i18n="introPostShare">Chia sẻ bài gốc</span></a
+              >
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <section
+        class="download-section container"
+        id="tai-ung-dung"
+        aria-labelledby="download-title"
+      >
+        <div class="download-panel">
+          <div class="download-copy">
+            <p class="eyebrow">
+              <span class="status-dot"></span
+              ><span data-i18n="downloadKicker">ỨNG DỤNG SẮP RA MẮT</span>
+            </p>
+            <h2 id="download-title">
+              <span data-i18n="downloadTitle">Chuyến đi tiếp theo,</span
+              ><br /><em data-i18n="downloadTitleEm"
+                >bắt đầu từ đây.</em
+              >
+            </h2>
+            <p data-i18n="downloadBody">Đang phát triển cho iOS và Android.</p>
+            <div class="store-buttons">
+              <button class="store-button" data-platform="ios">
+                <svg aria-hidden="true" class="icon store-icon">
+                  <use href="#apple" /></svg
+                ><span
+                  ><small data-i18n="storeSoon">SẮP RA MẮT</small
+                  ><strong>App Store</strong></span
+                ><svg aria-hidden="true" class="icon">
+                  <use href="#arrow" />
+                </svg></button
+              ><button class="store-button" data-platform="android">
+                <svg aria-hidden="true" class="icon store-icon">
+                  <use href="#play" /></svg
+                ><span
+                  ><small data-i18n="storeSoon">SẮP RA MẮT</small
+                  ><strong>Google Play</strong></span
+                ><svg aria-hidden="true" class="icon">
+                  <use href="#arrow" />
+                </svg>
+              </button>
+            </div>
+            <p class="download-note" data-i18n="downloadNote">
+              Chưa mở tải · Chưa có ngày phát hành.
+            </p>
+          </div>
+<div class="download-visual"><div class="download-photo" role="region" aria-roledescription="carousel" aria-label="Những điểm đến đang chờ bạn" data-i18n-aria="downloadGallery">
+<div class="download-frame is-active" data-name="Sa Pa" ><picture><img src="assets/sa-pa-960.webp" srcset="assets/sa-pa-480.webp 480w, assets/sa-pa-960.webp 960w" sizes="(max-width:700px) 90vw, 540px" width="960" height="640" alt="Ruộng bậc thang xanh trong thung lũng Sa Pa" loading="lazy" decoding="async"/></picture></div><div class="download-frame " data-name="Hạ Long" aria-hidden=true><picture><img src="assets/ha-long-960.webp" srcset="assets/ha-long-480.webp 480w, assets/ha-long-960.webp 960w" sizes="(max-width:700px) 90vw, 540px" width="960" height="640" alt="Núi đá và thuyền trên vịnh Hạ Long" loading="lazy" decoding="async"/></picture></div><div class="download-frame " data-name="Hội An" aria-hidden=true><picture><img src="assets/hoi-an-960.webp" srcset="assets/hoi-an-480.webp 480w, assets/hoi-an-960.webp 960w" sizes="(max-width:700px) 90vw, 540px" width="960" height="640" alt="Phố cổ Hội An bên dòng sông" loading="lazy" decoding="async"/></picture></div><div class="download-frame " data-name="Đà Lạt" aria-hidden=true><picture><img src="assets/da-lat-960.webp" srcset="assets/da-lat-480.webp 480w, assets/da-lat-960.webp 960w" sizes="(max-width:700px) 90vw, 540px" width="960" height="640" alt="Hồ và cảnh quan thành phố Đà Lạt" loading="lazy" decoding="async"/></picture></div><div class="download-photo-top"><span data-i18n="downloadPhotoKicker">CẢM HỨNG KHÔNG DỪNG LẠI</span><svg class="icon" aria-hidden="true"><use href="#compass"/></svg></div>
+<div class="download-photo-copy"><span>Just go.<br/><em>We'll plan.</em></span><div class="download-location"><svg class="icon" aria-hidden="true"><use href="#pin"/></svg><strong class="download-location-name">Sa Pa</strong><span data-i18n="vietnam">VIỆT NAM</span></div></div>
+<div class="download-gallery-controls" aria-label="Chọn ảnh điểm đến" data-i18n-aria="slideIndicators"><button data-gallery-slide="0" aria-label="Sa Pa" aria-current=true><span></span></button><button data-gallery-slide="1" aria-label="Hạ Long" ><span></span></button><button data-gallery-slide="2" aria-label="Hội An" ><span></span></button><button data-gallery-slide="3" aria-label="Đà Lạt" ><span></span></button></div></div><div class="download-ticket"><svg class="icon" aria-hidden="true"><use href="#plane"/></svg><div><small data-i18n="downloadTicketLabel">MỘT Ý TƯỞNG NHỎ</small><strong data-i18n="downloadTicketTitle">Một hành trình của riêng bạn.</strong></div><span aria-hidden="true">↗</span></div></div>
+        </div>
+      </section>
+
+      <section
+        class="faq-section container section"
+        id="faq"
+        aria-labelledby="faq-title"
+      >
+        <div>
+          <p class="eyebrow" data-i18n="faqKicker">TRƯỚC KHI LÊN ĐƯỜNG</p>
+          <h2 id="faq-title" data-i18n="faqTitle">Bạn muốn biết thêm?</h2>
+          <p data-i18n="faqBody">Những điều cần biết trước khi lên đường.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              <span data-i18n="faq1Question">GoEase là gì?</span
+              ><span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p data-i18n="faq1Answer">
+              Dự án trợ lý lập kế hoạch du lịch Việt Nam với AI, theo sở thích,
+              thời gian và ngân sách của bạn.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="faq2Question">Tải ứng dụng được chưa?</span
+              ><span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p data-i18n="faq2Answer">
+              Chưa. Ứng dụng đang phát triển; đường dẫn tải chính thức sẽ được
+              cập nhật khi phát hành.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="faq3Question"
+                >Giao diện này đã hoàn thiện chưa?</span
+              ><span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p data-i18n="faq3Answer">
+              Đây là minh họa với dữ liệu mẫu. Sản phẩm thực tế vẫn đang được
+              xây dựng.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="faq4Question">Theo dõi cập nhật ở đâu?</span
+              ><span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <p data-i18n="faq4Answer">
+              Trên fanpage GoEase. Bài giới thiệu ở website là nội dung tĩnh,
+              không tự đồng bộ Facebook.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+<div class="footer-top footer-marquee"><div class="footer-marquee-track"><div class="footer-marquee-group"><div class="brand" aria-label="GoEase"><img src="assets/goease-logo-small.webp" alt="" width="48" height="48"/><span>GoEase</span></div><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-slogan">Just go. We'll plan.</span><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-travel-message" data-i18n="marqueeMessage">Ít bận tâm. Nhiều trải nghiệm.</span><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-travel-message" data-i18n="heroKicker">VIỆT NAM, THEO CÁCH CỦA BẠN</span><span class="marquee-dot" aria-hidden="true">✳</span></div><div class="footer-marquee-group" aria-hidden="true" inert><div class="brand" aria-label="GoEase"><img src="assets/goease-logo-small.webp" alt="" width="48" height="48"/><span>GoEase</span></div><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-slogan">Just go. We'll plan.</span><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-travel-message" data-i18n="marqueeMessage">Ít bận tâm. Nhiều trải nghiệm.</span><span class="marquee-dot" aria-hidden="true">✳</span><span class="footer-travel-message" data-i18n="heroKicker">VIỆT NAM, THEO CÁCH CỦA BẠN</span><span class="marquee-dot" aria-hidden="true">✳</span></div></div></div>
+      <div class="footer-bottom">
+        <span>© 2026 GoEase</span
+        ><span data-i18n="footerMessage"
+          >Được ấp ủ cho những chuyến đi tại Việt Nam.</span
+        ><a href="image-credits.html" data-i18n="imageCredits">Nguồn ảnh</a>
       </div>
-    </section>
+    </footer>
 
-    <div class="values-strip"><div class="container values-inner"><span data-i18n="strip1">Khám phá dễ dàng</span><svg class="icon"><use href="#plane"/></svg><span data-i18n="strip2">Lên kế hoạch thông minh</span><svg class="icon"><use href="#plane"/></svg><span data-i18n="strip3">Trải nghiệm trọn vẹn</span><svg class="icon"><use href="#plane"/></svg><span class="strip-slogan">Just go. We’ll plan.</span></div></div>
-
-    <section class="section container features" id="tinh-nang">
-      <div class="section-intro"><div><p class="eyebrow" data-i18n="featureEyebrow">ÍT LO TOAN, NHIỀU TRẢI NGHIỆM</p><h2><span data-i18n="featureTitle1">Một chuyến đi hay.</span><br><span class="accent" data-i18n="featureTitle2">Bắt đầu từ kế hoạch tốt.</span></h2></div><p class="section-description" data-i18n="featureDescription">GoEase đang xây dựng một nơi để bạn gom những ý tưởng, lịch trình và ngân sách — để việc chuẩn bị cho chuyến đi trở nên nhẹ nhàng hơn.</p></div>
-      <div class="feature-grid">
-        <article class="feature"><span class="feature-number">01</span><div class="feature-icon"><svg class="icon"><use href="#compass"/></svg></div><h3 data-i18n="feature1Title">Đúng sở thích của bạn</h3><p data-i18n="feature1Body">Thiên nhiên, văn hóa hay ẩm thực? Bắt đầu với điều bạn yêu thích để định hình một hành trình mang dấu ấn riêng.</p><span class="feature-label" data-i18n="feature1Tag">Cá nhân hóa hành trình</span></article>
-        <article class="feature"><span class="feature-number">02</span><div class="feature-icon orange"><svg class="icon"><use href="#map"/></svg></div><h3 data-i18n="feature2Title">Lịch trình dễ theo dõi</h3><p data-i18n="feature2Body">Sắp xếp hoạt động theo từng ngày, xem địa điểm trên bản đồ và điều chỉnh kế hoạch khi ý tưởng mới xuất hiện.</p><span class="feature-label" data-i18n="feature2Tag">Chủ động từng ngày</span></article>
-        <article class="feature"><span class="feature-number">03</span><div class="feature-icon"><svg class="icon"><use href="#wallet"/></svg></div><h3 data-i18n="feature3Title">Ngân sách trong tầm tay</h3><p data-i18n="feature3Body">Dự tính chi phí cho từng hoạt động và cả chuyến đi. Biết mình dự định chi bao nhiêu, để tận hưởng thoải mái hơn.</p><span class="feature-label" data-i18n="feature3Tag">Dễ quản lý chi phí</span></article>
-      </div><p class="development-caption" data-i18n="developmentCaption">Các trải nghiệm trên là định hướng tính năng đang được phát triển.</p>
-    </section>
-
-    <section class="showcase section" id="trai-nghiem"><div class="container">
-      <div class="showcase-top"><div><p class="eyebrow" data-i18n="showcaseEyebrow">MỘT CHÚT VỀ GOEASE</p><h2><span data-i18n="showcaseTitle1">Cảm hứng trong tay.</span><br><span data-i18n="showcaseTitle2">Hành trình ở phía trước.</span></h2></div><div class="showcase-side"><span class="status-pill"><span class="tiny-dot"></span><span data-i18n="designPreview">THIẾT KẾ THAM CHIẾU</span></span><p data-i18n="showcaseBody">Từ ý tưởng đầu tiên đến một lịch trình rõ ràng. Đây là hình dung về trải nghiệm GoEase mà chúng tôi đang hướng tới.</p></div></div>
-      <div class="app-preview" aria-label="Minh họa trải nghiệm GoEase" data-i18n-aria="appPreview">
-        <article class="phone phone-home"><div class="phone-notch" aria-hidden="true"></div><div class="phone-status" aria-hidden="true"><span>9:41</span><span>••• ▰</span></div><div class="phone-brand"><img src="assets/goease-logo-small.webp" width="30" height="30" alt=""><strong>GoEase</strong><svg class="icon"><use href="#plane"/></svg></div><p class="phone-greeting" data-i18n="phoneHello">Xin chào,</p><h3 data-i18n="phoneReady">Sẵn sàng cho hành trình mới?</h3><div class="phone-landscape"><img src="assets/ha-long-480.webp" alt="" loading="lazy"><span>Just go.<br>We’ll plan.</span></div><div class="phone-action"><svg class="icon"><use href="#plane"/></svg><span data-i18n="phoneCreate">Tạo chuyến đi</span><span>→</span></div><h4 data-i18n="phoneTrip">Chuyến đi của bạn</h4><div class="mini-trip"><svg class="icon"><use href="#pin"/></svg><div><strong>Hạ Long – Cát Bà</strong><small data-i18n="sampleTrip">3 ngày · 4 người</small></div><span>↗</span></div><div class="phone-bottom" aria-hidden="true"><svg class="icon"><use href="#compass"/></svg><svg class="icon"><use href="#map"/></svg><svg class="icon"><use href="#wallet"/></svg></div></article>
-        <article class="phone phone-plan"><div class="phone-notch" aria-hidden="true"></div><div class="phone-status" aria-hidden="true"><span>9:41</span><span>••• ▰</span></div><div class="phone-title"><span>‹</span><strong data-i18n="phoneCreate">Tạo chuyến đi</strong><svg class="icon"><use href="#plane"/></svg></div><div class="phone-progress" aria-hidden="true"><b>1</b><i></i><span>2</span><i></i><span>3</span></div><h3 data-i18n="phoneStart">Bắt đầu hành trình của bạn</h3><p class="phone-subtitle" data-i18n="phoneOwn">Một kế hoạch theo cách riêng.</p><div class="phone-field"><small data-i18n="phoneDestination">Điểm đến</small><span><svg class="icon"><use href="#pin"/></svg> Hạ Long, Quảng Ninh</span></div><div class="phone-field"><small data-i18n="phoneDuration">Thời gian</small><span data-i18n="phoneDays">3 ngày khám phá</span></div><div class="phone-field"><small data-i18n="phoneBudget">Ngân sách dự kiến</small><span>5.000.000 – 10.000.000 VND</span></div><h4 data-i18n="phoneStyle">Bạn thích trải nghiệm gì?</h4><div class="phone-chips"><span class="selected" data-i18n="phoneNature">Thiên nhiên</span><span data-i18n="phoneFood">Ẩm thực</span><span data-i18n="phoneCulture">Văn hóa</span></div><div class="phone-action"><span data-i18n="phoneNext">Tiếp theo</span><span>→</span></div></article>
-        <article class="phone phone-itinerary"><div class="phone-notch" aria-hidden="true"></div><div class="phone-status" aria-hidden="true"><span>9:41</span><span>••• ▰</span></div><div class="phone-title"><span>‹</span><strong>Hạ Long – Cát Bà</strong><span>•••</span></div><div class="itinerary-image"><img src="assets/ha-long-480.webp" alt="" loading="lazy"><span data-i18n="phoneMoments">Những khoảnh khắc đáng nhớ.</span></div><div class="phone-day"><b data-i18n="phoneDay1">Ngày 1</b><span data-i18n="phoneDay2">Ngày 2</span><span data-i18n="phoneDay3">Ngày 3</span></div><div class="mini-timeline"><div><time>07:00</time><span class="timeline-dot"></span><span><b data-i18n="phoneDepart">Bắt đầu hành trình</b><small data-i18n="phoneDepartNote">Chào ngày mới, đi thôi!</small></span></div><div><time>10:00</time><span class="timeline-dot"></span><span><b data-i18n="phoneExplore">Khám phá vịnh Hạ Long</b><small data-i18n="phoneExploreNote">Thiên nhiên trong tầm mắt</small></span></div><div><time>12:00</time><span class="timeline-dot"></span><span><b data-i18n="phoneLunch">Thưởng thức ẩm thực</b><small data-i18n="phoneLunchNote">Một chút hương vị địa phương</small></span></div></div><div class="phone-budget"><svg class="icon"><use href="#wallet"/></svg><span data-i18n="phoneBudgetSummary">Chi phí dự kiến</span><b>8.200.000đ</b></div><div class="phone-action teal"><span data-i18n="phoneSave">Lưu chuyến đi</span><svg class="icon"><use href="#check"/></svg></div></article>
-      </div><div class="preview-controls" hidden><button class="preview-previous" aria-label="Màn hình trước" data-i18n-aria="previewPrevious"><span aria-hidden="true">‹</span></button><div class="preview-labels"><span class="preview-current-label" data-i18n="previewHome">Trang chủ</span><span class="preview-count">01 / 03</span></div><button class="preview-next" aria-label="Màn hình tiếp theo" data-i18n-aria="previewNext"><span aria-hidden="true">›</span></button></div><p class="preview-hint" data-i18n="previewHint">Vuốt ngang hoặc dùng nút để xem từng màn hình.</p><p class="image-caption" data-i18n="imageCaption">Hình ảnh minh họa định hướng thiết kế. Giao diện và tính năng có thể thay đổi khi phát hành.</p>
-    </div></section>
-
-    <section class="section container steps" id="cach-hoat-dong"><div class="section-intro"><div><p class="eyebrow" data-i18n="stepsEyebrow">TỪ “MUỐN ĐI” ĐẾN “SẴN SÀNG ĐI”</p><h2><span data-i18n="stepsTitle1">Hành trình của bạn.</span><br><span class="accent" data-i18n="stepsTitle2">Khởi đầu thật đơn giản.</span></h2></div><p class="section-description" data-i18n="stepsDescription">Một luồng trải nghiệm được thiết kế để bạn dành ít thời gian chuẩn bị hơn và nhiều thời gian khám phá hơn.</p></div>
-      <div class="journey-board">
-        <div class="journey-track" aria-hidden="true"><span class="route-stop">01</span><span class="route-stop">02</span><span class="route-stop">03</span><svg class="icon route-plane"><use href="#plane"/></svg></div>
-        <div class="steps-grid"><article class="step-card"><div class="ticket-top"><span class="step-num">1</span><svg class="icon"><use href="#pin"/></svg><span class="ticket-code">GO / 01</span></div><h3 data-i18n="step1Title">Kể về chuyến đi</h3><p data-i18n="step1Body">Chọn điểm đến, ngày đi, số người, ngân sách và những điều bạn muốn trải nghiệm.</p><span class="ticket-tag" data-i18n="ticket1">CHỌN ĐIỂM ĐẾN</span></article><article class="step-card"><div class="ticket-top"><span class="step-num">2</span><svg class="icon"><use href="#map"/></svg><span class="ticket-code">PLAN / 02</span></div><h3 data-i18n="step2Title">Lên kế hoạch của riêng bạn</h3><p data-i18n="step2Body">Xem lịch trình theo ngày, điều chỉnh hoạt động và cân đối chi phí theo nhu cầu.</p><span class="ticket-tag" data-i18n="ticket2">VẼ HÀNH TRÌNH</span></article><article class="step-card"><div class="ticket-top"><span class="step-num">3</span><svg class="icon"><use href="#plane"/></svg><span class="ticket-code">FLY / 03</span></div><h3 data-i18n="step3Title">Lưu lại và sẵn sàng đi</h3><p data-i18n="step3Body">Giữ kế hoạch chuyến đi để xem lại. Mang theo cảm hứng và bắt đầu hành trình của bạn.</p><span class="ticket-tag" data-i18n="ticket3">SẴN SÀNG KHÁM PHÁ</span></article></div>
+    <a class="back-to-top" href="#ve-goease" aria-label="Về trang đầu" data-i18n-aria="backTop"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg><span class="back-top-tooltip" data-i18n="backTop">Về trang đầu</span></a>
+    <dialog
+      id="download-dialog"
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-description"
+    >
+      <button
+        class="dialog-close circle-button"
+        aria-label="Đóng"
+        data-i18n-aria="close"
+      >
+        ×
+      </button>
+      <div class="dialog-landscape">
+        <img
+          src="assets/ha-long-960.webp"
+          width="960"
+          height="480"
+          alt=""
+        /><span>Just go.<br /><em>We'll plan.</em></span
+        ><span class="dialog-edition">GOEASE / THE NEXT CHAPTER</span>
       </div>
-    </section>
-
-
-
-    <section class="section container faq"><div><p class="eyebrow" data-i18n="faqEyebrow">BẠN CÓ THỂ ĐANG THẮC MẮC</p><h2 data-i18n="faqTitle">Trước khi lên đường.</h2></div><div class="faq-list"><details><summary data-i18n="faq1Question">GoEase là gì?</summary><p data-i18n="faq1Answer">GoEase là dự án ứng dụng lập kế hoạch du lịch, hướng đến việc tổ chức lịch trình theo sở thích, thời gian, số người và ngân sách. Slogan của dự án là “Just go. We’ll plan.”.</p></details><details><summary data-i18n="faq2Question">Tôi có thể tải ứng dụng ngay chưa?</summary><p data-i18n="faq2Answer">GoEase hiện đang trong giai đoạn phát triển. Hai nút App Store và Google Play chưa có đường dẫn tải. Khi ứng dụng được phát hành, đường dẫn chính thức sẽ được cập nhật tại đây.</p></details><details><summary data-i18n="faq3Question">Hình ảnh trên website có phải ứng dụng đã hoàn thiện?</summary><p data-i18n="faq3Answer">Hình ảnh trên website là thiết kế tham chiếu và nội dung minh họa. Đây là định hướng trải nghiệm của GoEase; giao diện và tính năng thực tế sẽ được hoàn thiện trong quá trình phát triển.</p></details></div></section>
-    <section class="section container about-section" id="about">
-      <div class="about-copy"><p class="eyebrow" data-i18n="aboutEyebrow">VỀ GOEASE</p><h2><span data-i18n="aboutTitle1">Đi xa hơn.</span><br><span class="accent" data-i18n="aboutTitle2">Kết nối nhiều hơn.</span></h2><p data-i18n="aboutBody">GoEase bắt đầu từ mong muốn làm cho việc chuẩn bị một chuyến đi trở nên đơn giản hơn. Chúng tôi đang xây dựng trải nghiệm lập kế hoạch du lịch xoay quanh sở thích, thời gian và ngân sách của bạn.</p><p data-i18n="aboutCommunity">Theo dõi hành trình phát triển GoEase, chia sẻ ý tưởng và trò chuyện cùng chúng tôi trên Facebook.</p><a class="facebook-button" href="https://www.facebook.com/profile.php?id=61594839483458" target="_blank" rel="noopener noreferrer"><span class="facebook-mark" aria-hidden="true">f</span><span data-i18n="facebookVisit">Ghé thăm GoEase trên Facebook</span><svg class="icon"><use href="#arrow"/></svg></a></div>
-      <div class="social-preview"><div class="social-heading"><span class="facebook-mark" aria-hidden="true">f</span><div><strong>GoEase</strong><span data-i18n="facebookCaption">Cùng nhau bắt đầu hành trình mới.</span></div><svg class="icon"><use href="#plane"/></svg></div><div class="facebook-embed-slot" data-state="idle"><div class="facebook-loading" role="status"><span class="loading-orbit" aria-hidden="true"></span><span data-i18n="facebookLoading">Đang chuẩn bị nội dung từ Facebook…</span></div><iframe title="Trang Facebook GoEase" data-i18n-title="facebookFrameTitle" data-facebook-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61594839483458&amp;tabs=timeline&amp;width=500&amp;height=560&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" loading="lazy" width="500" height="560" allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="facebook-fallback" hidden><span class="facebook-mark" aria-hidden="true">f</span><strong data-i18n="facebookFallbackTitle">Hành trình vẫn tiếp tục trên Facebook.</strong><p data-i18n="facebookFallbackBody">Khung nhúng có thể bị chặn bởi trình duyệt hoặc Facebook. Bạn vẫn có thể xem bài viết mới trực tiếp trên trang GoEase.</p></div></div><p class="social-note" data-i18n="facebookNote">Nếu Facebook không hiển thị ở đây, bạn có thể mở trang bằng nút bên dưới.</p><div class="social-actions"><a class="text-link" href="https://www.facebook.com/profile.php?id=61594839483458" target="_blank" rel="noopener noreferrer"><span data-i18n="facebookOpen">Mở trang Facebook</span><svg class="icon"><use href="#arrow"/></svg></a><button class="facebook-retry" data-i18n="facebookRetry" hidden>Tải lại khung nhúng</button></div></div>
-    </section>
-    <section class="download-section container" id="tai-ung-dung"><div class="download-panel"><button class="motion-toggle" aria-pressed="false" hidden data-i18n="pauseMotion">Tạm dừng chuyển động</button><div class="download-copy"><span class="eyebrow" data-i18n="downloadEyebrow">HẸN BẠN Ở HÀNH TRÌNH SẮP TỚI</span><h2>Just go.<br><span>We’ll plan.</span></h2><p data-i18n="downloadBody">Một ứng dụng nhỏ. Những hành trình lớn.<br>GoEase đang chuẩn bị cho lần ra mắt đầu tiên.</p><div class="store-buttons"><button class="store-button light" data-platform="ios"><svg class="store-icon"><use href="#apple"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>App Store</strong></span><span class="store-arrow">↗</span></button><button class="store-button light" data-platform="android"><svg class="store-icon"><use href="#play"/></svg><span><small data-i18n="availableSoon">SẮP CÓ MẶT TRÊN</small><strong>Google Play</strong></span><span class="store-arrow">↗</span></button></div><p class="download-note" data-i18n="downloadNote">Chưa mở tải xuống. Chúng tôi sẽ cập nhật khi ứng dụng ra mắt.</p></div><div class="download-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><span class="travel-bubble travel-bubble-one"><svg class="icon"><use href="#compass"/></svg></span><span class="travel-bubble travel-bubble-two"><svg class="icon"><use href="#pin"/></svg></span><img src="assets/goease-logo-cutout-small.webp" alt="" width="220" height="220"><svg class="icon big-plane"><use href="#plane"/></svg><span>YOUR NEXT<br>ADVENTURE<br><em>starts here.</em></span></div></div></section>
-  </main>
-
-  <footer class="container footer"><a href="#" class="brand"><img src="assets/goease-logo-small.webp" alt="" width="44" height="44"><span>GoEase<span class="brand-tag">Just go. We’ll plan.</span></span></a><p data-i18n="footerMessage">Đi xa hơn. Sống trọn hơn. Cùng GoEase.</p><a class="image-credits-link" href="image-credits.html" data-i18n="imageCredits">Nguồn ảnh</a><span>© 2026 GoEase</span></footer>
-  <dialog id="download-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Đóng" data-i18n-aria="close">×</button><div class="dialog-icon"><svg class="icon"><use href="#plane"/></svg></div><p class="eyebrow" data-i18n="dialogEyebrow">CHUYẾN ĐI MỚI ĐANG ĐƯỢC CHUẨN BỊ</p><h2 id="dialog-title" data-i18n="dialogTitle">GoEase sắp ra mắt.</h2><p id="dialog-description"></p><button class="dialog-confirm" data-i18n="dialogConfirm">Hẹn gặp bạn sớm!</button></dialog>
-  <script src="app.js?v=20261014-2"></script>
-  <script src="interactions.js?v=20261014-2"></script>
-  <script type="module" src="slideshow.js?v=20261014-2"></script>
+      <div class="dialog-copy">
+        <p class="eyebrow" data-i18n="dialogKicker">
+          CHUYẾN ĐI MỚI ĐANG ĐƯỢC CHUẨN BỊ
+        </p>
+        <h2 id="dialog-title" data-i18n="dialogTitle">
+          Hẹn bạn ở<br />hành trình đầu tiên.
+        </h2>
+        <span class="dialog-platform"></span>
+        <p id="dialog-description"></p>
+        <a
+          class="text-link"
+          href="https://www.facebook.com/profile.php?id=61594839483458"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span data-i18n="dialogFollow">Theo dõi ngày ra mắt</span
+          ><svg aria-hidden="true" class="icon"><use href="#arrow" /></svg></a
+        ><button class="dialog-confirm button" data-i18n="dialogConfirm">
+          Tiếp tục khám phá
+        </button>
+      </div>
+    </dialog>
+    <script src="app.js?v=20261016-release1"></script>
+    <script src="interactions.js?v=20261016-release1"></script>
+    <script type="module" src="slideshow.js?v=20261016-release1"></script>
+    <script type="module" src="download-gallery.js?v=20261016-release1"></script>
+    <script type="module" src="story-demo.js?v=20261016-release1"></script>
+    <script type="module" src="hero-aircraft.js?v=20261016-release1"></script>
+  <script type="module" src="specular-buttons.js?v=20261016-release1"></script>
+<script type="module" src="device-preview.js?v=20261016-release1"></script>
+<script type="module" src="animated-guide.js?v=20261016-release1"></script>
+<script type="module" src="header-nav.js?v=20261016-release1"></script>
+<script type="module" src="flux-background.js?v=20261016-release1"></script>
 </body>
 </html>

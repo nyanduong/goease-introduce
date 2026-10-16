@@ -1,17 +1,18 @@
 # GoEase landing page
 
-Website giới thiệu GoEase bằng HTML/CSS/JavaScript thuần. Giữ logo, slogan “Just go. We’ll plan.”, màu kem/xanh ngọc/cam và nội dung đã duyệt. Chỉ có light theme, không có Dark Mode.
+Bản redesign phát hành ngày 16/10/2026, theo hướng **Việt Nam, theo cách của bạn**: bố cục tạp chí du lịch, ảnh phong cảnh rộng và phần giới thiệu sản phẩm theo từng bước. HTML/CSS/JavaScript, với Three.js được bundle cục bộ cho mô hình máy bay WebGL; không dùng CDN runtime. Giữ nguyên logo chính thức, slogan **Just go. We'll plan.**, nền kem `#FFF8EF` và light mode.
 
-## Xem thử cục bộ
+## Chạy local
 
-Chạy trong C:\Wed-GoEase\goease-site bằng PowerShell:
+Trong PowerShell:
 
 ```powershell
-$env:GOEASE_PORT = '4174'
+cd C:\Wed-GoEase\goease-site
+$env:GOEASE_PORT = '4176'
 npm start
 ```
 
-Mở http://127.0.0.1:4174. Không đặt GOEASE_PORT thì server dùng 4173. Không cần cài dependency để chạy website.
+Mở [http://127.0.0.1:4176](http://127.0.0.1:4176). Artifact `dist` chạy trực tiếp, không cần cài dependency để xem. Khi sửa mô hình 3D hoặc build lại, chạy `npm ci` trước. Nếu không đặt `GOEASE_PORT`, server dùng 4173. Dừng bằng Ctrl+C. Sau khi sửa nguồn, tải lại trình duyệt; không có HMR.
 
 ```powershell
 npm run check
@@ -19,40 +20,44 @@ npm run build
 npm test
 ```
 
-Build kiểm tra JS và tài nguyên của artifact tĩnh dist, không bundling hoặc publish. Test kiểm tra chính sách autoplay, điều hướng và ảnh lỗi.
+Build bundle `src/hero-aircraft.js` bằng esbuild rồi xác minh artifact tĩnh `dist`, cú pháp JS, tài nguyên, anchor, slogan, light theme, catalogue dịch và cấu trúc guide. Không publish. Tám unit test kiểm tra đường bay, autoplay/slideshow; không thay kiểm thử trình duyệt. Bài giới thiệu được kiểm tra trực tiếp về responsive, nội dung Việt/Anh và liên kết.
 
-CSS/JS có query phiên bản để tránh dùng JavaScript của bản cũ trong cache sau deploy. Khi xuất bản thay đổi CSS/JS tiếp theo, tăng cùng mã phiên bản trong index.html và import motion-state.js của slideshow.js.
+## Nguồn đang dùng
 
-## Cấu trúc
+- `dist/index.html`: trang được thiết kế lại, demo dẫn chuyện, ba màn hình minh họa, một bài giới thiệu cộng đồng, FAQ và một native dialog. Không iframe Facebook.
+- `dist/design.css`: toàn bộ hệ thống thiết kế mới, breakpoint, trạng thái tương tác và motion. Các stylesheet cũ được giữ lại nhưng **không còn được tải** bởi trang chính.
+- `dist/app.js`: catalogue Việt/Anh, dữ liệu lịch trình minh họa và `downloadLinks`.
+- `dist/interactions.js`: menu, ngôn ngữ, guide/day controls, dialog, motion và reveal.
+- `src/hero-bay.js`: cảnh vịnh nhiều lớp, gợn nước, thuyền buồm chuyển động, phản chiếu, vệt nước và mây; dùng chung renderer và pause policy với máy bay. Xem [ảnh và prompt](docs/LIVING_BAY_ASSETS.md).
+- `src/hero-aircraft.js` → `dist/hero-aircraft.js`: mô hình hình học 3D, ánh sáng, đường bay không gian và pause policy; chạy `npm run build:hero` sau khi sửa nguồn.
+- `dist/story-demo.js`: lời thoại hiện dần và mô phỏng hành trình mẫu đồng bộ.
+- `dist/slideshow.js`, `dist/motion-state.js`: slideshow hai lớp, decode ảnh thật trước chuyển cảnh, autoplay khoảng 5 giây và pause policy.
 
-- dist/index.html: nội dung, mockup, FAQ, Facebook và native dialog.
-- dist/styles.css, theme.css, travel.css: lớp giao diện đã duyệt, giữ nguyên.
-- dist/premium.css: lớp tinh chỉnh giao diện, responsive và chuyển động.
-- dist/app.js: bản dịch Việt/Anh và downloadLinks, chỉ lưu ngôn ngữ trong localStorage.
-- dist/interactions.js: menu, reveal, preview, dialog, pause và Facebook.
-- dist/slideshow.js, motion-state.js: slideshow hai lớp ảnh, autoplay khoảng 5 giây, điều khiển/preload/xử lý lỗi.
+Ngôn ngữ và bản demo chuyến đi (khi người dùng bấm lưu) được lưu trong localStorage. Tiếng Việt là mặc định; nút EN chuyển sang tiếng Anh. Noto Sans/Lora hỗ trợ tiếng Việt, tải với `display=swap` và có fallback.
 
-Desktop giữ ba điện thoại xòe; mobile/tablet dùng mockup 260px có vuốt, nút trước/sau và phím mũi tên. Giữ Noto Sans hỗ trợ tiếng Việt, display=swap và font hệ thống dự phòng. Chuyển động tôn trọng giảm chuyển động, trạng thái tab và nút pause.
+GoEase hiện là dự án đang phát triển. Các màn hình, lịch trình và chi phí là ví dụ có nhãn. Không có AI request, booking hoặc download thật. Hai nút App Store/Google Play mở thông báo sắp ra mắt. Chỉ cập nhật `downloadLinks` khi có URL phát hành chính thức được duyệt.
 
-Hai nút tải vẫn mở thông báo sắp ra mắt. Khi có URL chính thức và được duyệt, cập nhật downloadLinks trong dist/app.js; không gắn URL Expo Go thay GoEase.
+## Facebook và bài giới thiệu
 
-Facebook dùng một Page Plugin chính thức của https://www.facebook.com/profile.php?id=61594839483458. Có loading, timeout/fallback, tải lại thủ công và liên kết trực tiếp. Meta cung cấp public timeline khi tải khung; thời điểm bài mới xuất hiện phụ thuộc cache/quyền truy cập. Không feed giả, scraping hoặc token frontend.
+Theo yêu cầu điều chỉnh mới nhất, phần cộng đồng dùng **một bài giới thiệu tĩnh trên website**, có bố cục gợi nhớ bài đăng Facebook nhưng dùng thiết kế GoEase. Nội dung được biên tập cho website, có nhãn rõ ràng; không phải bản sao feed live. Không hiển thị lượt thích/bình luận giả, không gọi Meta API, không iframe, polling, phân trang hoặc spinner.
 
-## Tài liệu và assets
+Ảnh là hình ảnh thương hiệu có sẵn của dự án; tên và logo chính thức được giữ. Liên kết **Xem bài gốc** mở bài giới thiệu thật đã xác minh trên Facebook; **Ghé fanpage** mở trang chính thức; **Chia sẻ bài gốc** mở hộp chia sẻ Facebook để người dùng tự thao tác. Không thực hiện follow/like/share tự động.
 
-- [Audit trước sửa](docs/PREMIUM_AUDIT.md)
-- [Báo cáo hoàn thành và kiểm thử](docs/PREMIUM_REPORT.md)
+Không cần Meta App hoặc access token để vận hành bài giới thiệu này. Bài viết mới trên Facebook không tự đồng bộ vào website; nội dung website cần chỉnh sửa khi muốn cập nhật. Bản hiện tại chạy hoàn toàn trên GitHub Pages và local static server, không thêm backend. Xem [báo cáo bài giới thiệu và kiểm tra Facebook](docs/FACEBOOK_INTEGRATION_REPORT.md).
+
+## Tài liệu và bằng chứng
+
+- [Hệ chữ, nội dung và QA responsive](docs/TYPOGRAPHY.md)
+- [Hướng thiết kế và discovery](docs/REDESIGN_DIRECTION.md)
+- [Báo cáo redesign, QA và giới hạn](docs/REDESIGN_REPORT.md)
 - [Nguồn ảnh và giấy phép](dist/image-credits.html)
-- [Nguồn logo cutout có sẵn](docs/logo-cutout.md)
+- [Lịch sử logo cutout](docs/logo-cutout.md)
+- `qa/redesign/`: ảnh trước/sau, browser-results.json, console và hash baseline; được Git bỏ qua, lưu trên máy local.
 
-Logo, cutout và ảnh Hạ Long gốc được giữ nguyên; WebP là bản tối ưu bổ sung. scripts/optimize-assets.py cần Python/Pillow để tái tạo assets, không cần khi chạy web. Nguồn Commons ở qa/source-images trên máy này, không nằm trong artifact. Muốn tái tạo trên máy khác cần tải ảnh nguồn từ các trang/giấy phép đã ghi.
+Đã đọc README/MVP_EXPO_GO trong `C:/GoEase/go-ease-webapp` và Google Docs tham chiếu. Không sửa repository sản phẩm. Nguồn ảnh/logo có sẵn được giữ nguyên; phong cảnh Hạ Long và ảnh máy bay fallback được tạo riêng cho hero; xem `docs/HERO_ART_DIRECTION.md`.
 
-Đã đối chiếu README và docs/MVP_EXPO_GO.md hiện có trong C:/GoEase/go-ease-webapp, cùng Google Docs EXE101_G17_03. UI_DIRECTION.md và FEATURE_FLOWS.md cũ không còn trong checkout sản phẩm hiện tại. Mockup và AI/lịch trình/ngân sách là định hướng, không phải tính năng đã phát hành.
+## Git và hosting
 
-## Git và website công khai
+Repo: [tranthaigin/goease-introduce](https://github.com/tranthaigin/goease-introduce). Website công khai hiện tại: [GitHub Pages](https://tranthaigin.github.io/goease-introduce/).
 
-Repo: https://github.com/tranthaigin/goease-introduce. Website: https://tranthaigin.github.io/goease-introduce/.
-
-Workflow .github/workflows/pages.yml publish dist khi push main. Bản nâng cấp đã được review cục bộ; ngày 14/10/2026 người dùng yêu cầu triển khai bản mới lên GitHub Pages. Sử dụng workflow hiện có, không đổi remote hoặc hosting config. Báo cáo lưu kết quả kiểm thử và trạng thái trước lần phê duyệt này.
-
-qa/ được Git bỏ qua, chứa ảnh chụp/kết quả kiểm thử. scripts/qa-failure-server.mjs chỉ mô phỏng lỗi ở 4175, không nằm trong dist hoặc chạy trong bản thật.
+Workflow hiện có publish `dist` khi push `main`. **Bản redesign được người dùng duyệt và yêu cầu xuất bản ngày 16/10/2026.** Không thay workflow hoặc hosting config. Chỉ xuất bản khi người dùng duyệt và yêu cầu rõ ràng.
