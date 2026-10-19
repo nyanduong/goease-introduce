@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {BOAT_WIDTH,boatState} from './bay-space.js';
 
 // Photographic layers share the aircraft's renderer, clock and pause policy.
 export async function createLivingBay(renderer) {
@@ -54,7 +55,7 @@ export async function createLivingBay(renderer) {
       }`
   });materials.push(bayMaterial);
   const bay=new THREE.Mesh(new THREE.PlaneGeometry(360,240),bayMaterial);bay.position.set(180,135,0);scene.add(bay);
-  const boatWidth=44,boatHeight=boatWidth*boatTexture.image.height/boatTexture.image.width;
+  const boatWidth=BOAT_WIDTH,boatHeight=boatWidth*boatTexture.image.height/boatTexture.image.width;
   const boat=layer(boatTexture,boatWidth,boatHeight,130,76+boatHeight/2,3);
   const reflection=layer(boatTexture,boatWidth,boatHeight,130,76-boatHeight*.32,1,.14);
   reflection.scale.y=-.64;
@@ -97,11 +98,8 @@ export async function createLivingBay(renderer) {
   function update(time) {
     bayMaterial.uniforms.uTime.value=time;
     reflectionTime.value=time;
-    const phase=(time/64)%1;
-    const x=62+235*phase;
-    const visibility=THREE.MathUtils.smoothstep(phase,0,.09)*(1-THREE.MathUtils.smoothstep(phase,.89,1));
+    const {x,visibility,waterline}=boatState(time);
     const bob=Math.sin(time*1.1)*.52+Math.sin(time*.57)*.28;
-    const waterline=70+Math.sin(phase*Math.PI)*7;
     boat.position.set(x,waterline+boatHeight/2+bob,3);
     boat.rotation.z=Math.sin(time*.83)*.012;
     boat.material.opacity=visibility;

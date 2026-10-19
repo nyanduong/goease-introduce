@@ -1,2 +1,5 @@
 # esbuild embeds upstream GLSL strings; preserve their original whitespace.
 dist/hero-aircraft.js whitespace=-blank-at-eol,-space-before-tab
+dist/hero-birds.js whitespace=-blank-at-eol,-space-before-tab
+dist/bird-study.js whitespace=-blank-at-eol,-space-before-tab
+dist/marine-study.js whitespace=-blank-at-eol,-space-before-tab
