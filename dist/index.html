@@ -91,7 +91,7 @@
           aria-label="Điều hướng chính"
           data-i18n-aria="nav"
         >
-          <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Tải xuống</span></a>
+          <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Cài đặt PWA</span></a>
         </nav>
         <div class="nav-actions">
           <button
@@ -127,7 +127,7 @@
         aria-label="Điều hướng trên điện thoại"
         data-i18n-aria="mobileNav"
       >
-        <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Tải xuống</span></a>
+        <a href="#tinh-nang"><svg class="icon nav-icon" aria-hidden="true"><use href="#compass"/></svg><span data-i18n="navIdea">Ý tưởng</span></a><a href="#trai-nghiem"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-mountain"/></svg><span data-i18n="navExperience">Trải nghiệm</span></a><a href="#about"><svg class="icon nav-icon" aria-hidden="true"><use href="#app-users"/></svg><span data-i18n="navCommunity">Về chúng tôi</span></a><a href="#tai-ung-dung"><svg class="icon nav-icon" aria-hidden="true"><use href="#nav-download"/></svg><span data-i18n="navDownload">Cài đặt PWA</span></a>
       </nav>
     </header>
 
@@ -739,7 +739,7 @@
           <div class="download-copy">
             <p class="eyebrow">
               <span class="status-dot"></span
-              ><span data-i18n="downloadKicker">ỨNG DỤNG SẮP RA MẮT</span>
+              ><span data-i18n="downloadKicker">GOEASE PHIÊN BẢN PWA</span>
             </p>
             <h2 id="download-title">
               <span data-i18n="downloadTitle">Chuyến đi tiếp theo,</span
@@ -747,30 +747,16 @@
                 >bắt đầu từ đây.</em
               >
             </h2>
-            <p data-i18n="downloadBody">Đang phát triển cho iOS và Android.</p>
+            <p data-i18n="downloadBody">Dùng GoEase trên trình duyệt và thêm vào màn hình chính để truy cập thuận tiện.</p>
             <div class="store-buttons">
-              <button class="store-button" data-platform="ios">
-                <svg aria-hidden="true" class="icon store-icon">
-                  <use href="#apple" /></svg
-                ><span
-                  ><small data-i18n="storeSoon">SẮP RA MẮT</small
-                  ><strong>App Store</strong></span
-                ><svg aria-hidden="true" class="icon">
-                  <use href="#arrow" />
-                </svg></button
-              ><button class="store-button" data-platform="android">
-                <svg aria-hidden="true" class="icon store-icon">
-                  <use href="#play" /></svg
-                ><span
-                  ><small data-i18n="storeSoon">SẮP RA MẮT</small
-                  ><strong>Google Play</strong></span
-                ><svg aria-hidden="true" class="icon">
-                  <use href="#arrow" />
-                </svg>
-              </button>
+              <a class="store-button" href="https://app.goease.com.vn" aria-describedby="pwa-install-note">
+                <svg aria-hidden="true" class="icon store-icon"><use href="#nav-download" /></svg>
+                <span><small data-i18n="pwaLabel">GOEASE TRÊN WEB</small><strong data-i18n="pwaInstall">Cài đặt PWA</strong></span>
+                <svg aria-hidden="true" class="icon"><use href="#arrow" /></svg>
+              </a>
             </div>
-            <p class="download-note" data-i18n="downloadNote">
-              Chưa mở tải · Chưa có ngày phát hành.
+            <p id="pwa-install-note" class="download-note" data-i18n="downloadNote">
+              Mở trang PWA: trên Android, chọn Cài đặt ứng dụng trong menu Chrome; trên iPhone, dùng Safari → Chia sẻ → Thêm vào Màn hình chính. Tùy chọn có thể khác theo trình duyệt.
             </p>
           </div>
 <div class="download-visual"><div class="download-photo" role="region" aria-roledescription="carousel" aria-label="Những điểm đến đang chờ bạn" data-i18n-aria="downloadGallery">
@@ -803,12 +789,11 @@
           </details>
           <details>
             <summary>
-              <span data-i18n="faq2Question">Tải ứng dụng được chưa?</span
+              <span data-i18n="faq2Question">Cài GoEase như thế nào?</span
               ><span class="faq-plus" aria-hidden="true">+</span>
             </summary>
             <p data-i18n="faq2Answer">
-              Chưa. Ứng dụng đang phát triển; đường dẫn tải chính thức sẽ được
-              cập nhật khi phát hành.
+              Hiện bạn có thể dùng bản PWA. Bấm Cài đặt PWA để mở GoEase, rồi chọn cài đặt hoặc thêm vào màn hình chính từ trình duyệt.
             </p>
           </details>
           <details>
@@ -889,7 +874,7 @@
         </button>
       </div>
     </dialog>
-    <script src="app.js?v=20261016-release1"></script>
+    <script src="app.js?v=20261026-pwa1"></script>
     <script src="interactions.js?v=20261016-release1"></script>
     <script type="module" src="slideshow.js?v=20261016-release1"></script>
     <script type="module" src="download-gallery.js?v=20261016-release1"></script>

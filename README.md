@@ -35,7 +35,7 @@ Build bundle `src/hero-aircraft.js` bằng esbuild rồi xác minh artifact tĩn
 
 Ngôn ngữ và bản demo chuyến đi (khi người dùng bấm lưu) được lưu trong localStorage. Tiếng Việt là mặc định; nút EN chuyển sang tiếng Anh. Noto Sans/Lora hỗ trợ tiếng Việt, tải với `display=swap` và có fallback.
 
-GoEase hiện là dự án đang phát triển. Các màn hình, lịch trình và chi phí là ví dụ có nhãn. Không có AI request, booking hoặc download thật. Hai nút App Store/Google Play mở thông báo sắp ra mắt. Chỉ cập nhật `downloadLinks` khi có URL phát hành chính thức được duyệt.
+GoEase hiện là dự án đang phát triển. Các màn hình, lịch trình và chi phí là ví dụ có nhãn. Trang giới thiệu không thực hiện AI request hoặc booking thật. Nút **Cài đặt PWA** mở https://app.goease.com.vn; người dùng cài đặt/thêm vào màn hình chính từ trình duyệt trên trang PWA. Hai nút App Store/Google Play được thay tạm bằng liên kết PWA này.
 
 ## Facebook và bài giới thiệu
 
