@@ -72,6 +72,12 @@ DNS tại Tenten:
 | A | @ | 185.199.109.153 |
 | A | @ | 185.199.110.153 |
 | A | @ | 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153 |
+| AAAA | @ | 2606:50c0:8001::153 |
+| AAAA | @ | 2606:50c0:8002::153 |
+| AAAA | @ | 2606:50c0:8003::153 |
 | CNAME | www | nyanduong.github.io |
+
+Tên miền đã được xác minh trong tài khoản GitHub `nyanduong`. Giữ bản ghi TXT `_github-pages-challenge-nyanduong` tại Tenten để duy trì xác minh quyền sở hữu.
 
 GitHub cấp chứng chỉ TLS cho tên miền sau khi kiểm tra DNS thành công. Bật **Enforce HTTPS** khi chứng chỉ đã sẵn sàng. `www.goease.com.vn` chuyển về tên miền chính. Chỉ xuất bản các thay đổi nội dung khi người dùng yêu cầu.
