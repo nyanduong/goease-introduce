@@ -58,6 +58,20 @@ Không cần Meta App hoặc access token để vận hành bài giới thiệu 
 
 ## Git và hosting
 
-Repo: [tranthaigin/goease-introduce](https://github.com/tranthaigin/goease-introduce). Website công khai hiện tại: [GitHub Pages](https://tranthaigin.github.io/goease-introduce/).
+Repo triển khai: [nyanduong/goease-introduce](https://github.com/nyanduong/goease-introduce). Tên miền chính: [goease.com.vn](https://goease.com.vn/).
 
-Workflow hiện có publish `dist` khi push `main`. **Bản redesign được người dùng duyệt và yêu cầu xuất bản ngày 16/10/2026.** Không thay workflow hoặc hosting config. Chỉ xuất bản khi người dùng duyệt và yêu cầu rõ ràng.
+Workflow `.github/workflows/pages.yml` publish `dist` khi push `main`, hoặc khi chạy thủ công từ GitHub Actions. Trước khi cập nhật website, chạy `npm ci`, `npm run build` và `npm test`, rồi commit cả source và artifact `dist` đã build.
+
+Tên miền được nối với GitHub Pages theo yêu cầu ngày 26/10/2026. Trong Settings → Pages, Source là **GitHub Actions** và Custom domain là `goease.com.vn`. Với workflow này, tên miền được lưu trong cấu hình Pages; không cần file `CNAME` trong repository.
+
+DNS tại Tenten:
+
+| Loại | Tên | Giá trị |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | nyanduong.github.io |
+
+GitHub cấp chứng chỉ TLS cho tên miền sau khi kiểm tra DNS thành công. Bật **Enforce HTTPS** khi chứng chỉ đã sẵn sàng. `www.goease.com.vn` chuyển về tên miền chính. Chỉ xuất bản các thay đổi nội dung khi người dùng yêu cầu.
